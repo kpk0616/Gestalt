@@ -37,9 +37,9 @@ struct PageNavigationView: View {
     /// contines course title and a progress bar
     var courseInfoHeader : some View {
         VStack(alignment: .leading, spacing: 4){
-            Text("Typography")
+            Text("Gestalt Theory")
                 .font(.footnote)
-            Text("Basics Crashcourse")
+            Text("Basics Course")
                 .font(.title3).fontWeight(.semibold)
                 .padding(.bottom, 20)
             ProgressView(value: Float(appState.completionProgress.count), total: Float(BasicsCourse.count))

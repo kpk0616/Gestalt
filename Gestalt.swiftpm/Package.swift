@@ -16,9 +16,10 @@ let package = Package(
         .iOSApplication(
             name: "Gestalt",
             targets: ["AppModule"],
+            teamIdentifier: "82Q43H4UQQ",
             displayVersion: "1.0",
             bundleVersion: "1",
-            appIcon: .placeholder(icon: .star),
+            appIcon: .placeholder(icon: .camera),
             accentColor: .asset("AccentColor"),
             supportedDeviceFamilies: [
                 .pad,

@@ -11,6 +11,8 @@ struct WelcomePlaygroundView: View {
     
     // manage user progress
     @ObservedObject var appState: AppState
+  @State var challengeChecked: Bool = false
+  @Environment(\.colorScheme) var colorScheme
     
     
     /// currently opend page
@@ -20,12 +22,38 @@ struct WelcomePlaygroundView: View {
     
     var body: some View {
         VStack{
-            Image(systemName: "character.cursor.ibeam")
-                .resizable()
-                .scaledToFit()
-                .frame(width: 100, height: 100, alignment: .center)
-                .foregroundColor(Color.accentColor.opacity(0.3))
-                .padding(.bottom, 50)
+          // 챌린지 배경 + 사진 Start
+          if (!challengeChecked) { // 챌린지 완료 전 (기본)
+            ZStack {
+              Color(UIColor.systemBackground)
+              VStack {
+                Spacer(minLength: 45)
+                Image("sightSpaceExample")
+                  .resizable()
+                  .renderingMode(.template)
+                  .foregroundColor(colorScheme == .dark ? Color.white : Color.black)
+                  .scaledToFit()
+                  .frame(width: 250, height: 250, alignment: .center)
+                  .padding(.bottom, 50)
+              }
+            }
+          }
+          else {
+            ZStack { // 챌린지 후 (버튼 클릭된 상태)
+              Color(UIColor.systemBackground).colorInvert()
+              VStack {
+                Spacer(minLength: 45)
+                Image("sightSpaceExample")
+                  .resizable()
+                  .renderingMode(.template)
+                  .foregroundColor(colorScheme == .dark ? Color.black : Color.white)
+                  .scaledToFit()
+                  .frame(width: 250, height: 250, alignment: .center)
+                  .padding(.bottom, 50)
+              }
+            }
+          }
+          // 챌린지 배경 + 사진 End
             HStack{
                 Spacer()
                 Text("This is the playground view where you will be soving the callenges.")
@@ -42,6 +70,7 @@ struct WelcomePlaygroundView: View {
                         let currentPage = BasicsCourse[appState.currentPage]
                         // Mark lesson as completed
                         appState.appendToCompletionProgress(id: currentPage.id)
+                      challengeChecked.toggle()
                     } label: {
                         Text("Got it")
                             .padding(12)
