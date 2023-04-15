@@ -1,16 +1,15 @@
 import SwiftUI
 
 // This file contains all content that app displays, organized with Pages
-let BasicsCourse : [Page] = [welcome, sightPlace, similarity, proximity, continuance, commonFate, closure, quiz]
+let BasicsCourse : [Page] = [welcome, similarity, proximity, continuance, commonFate, closure, quiz]
 
 /// All avalible PlaygroundViews that PageContentView can darw
 /// The switch case in PageContentView must cover that case for a view to appear
 enum PlaygroundViews {
     case welcomePlaygroundView
-    case sightPlacePlaygroundView
     case similarityPlaygroundView
-    case appPlaygroundView
-    case kerningPlaygroundView
+    case proximityPlaygroundView
+    case continuancePlaygroundView
     case quizPlaygroundView
 }
 
@@ -35,26 +34,6 @@ let welcome = Page(
         PageDivider(topSpacing: true),
         PageHeadline("헤딩2", topSpacing: true),
         PageText("본문본문"),
-    ]
-)
-
-let sightPlace = Page(
-    id: "basics_fonts",
-    title: "Sight Place",
-    contentSubTitle: "Lesson 1",
-    contentTitle: "Positive Place & Negative Place",
-    titleImageName: "circle.righthalf.filled",
-    playgroundView: .sightPlacePlaygroundView,
-    elements: [
-        PageText("포지티브와 네거티브 플레이스 설명"),
-        PageCustomView(.fontsContentCustomView, topSpacing: true), // 이건 지워야할듯?
-        PageText("본문내용"),
-        PageDivider(topSpacing: true),
-        PageHeadline("헤딩1", topSpacing: true),
-        PageText("본문 내용"),
-        PageTask("챌린지!", topSpacing: true),
-        PageHeadline("Summary", topSpacing: true),
-        PageText("요약본"),
     ]
 )
 
@@ -85,7 +64,7 @@ let proximity = Page(
     contentSubTitle: "Lesson 3",
     contentTitle: "The Law of Proximity",
     titleImageName: "rectangle.grid.1x2",
-    playgroundView: .kerningPlaygroundView,
+    playgroundView: .proximityPlaygroundView,
     elements: [
         PageText("For this last lesson, we will take a look at something more advanced in typography, kerning and tracking of letters and fonts."),
         PageHeadline("Make space", topSpacing: true),
@@ -102,14 +81,14 @@ let continuance = Page(
     contentSubTitle: "Lesson 4",
     contentTitle: "The Law of Continuance",
     titleImageName: "staroflife.fill",
-    playgroundView: .kerningPlaygroundView,
+    playgroundView: .continuancePlaygroundView,
     elements: [
-        PageText("For this last lesson, we will take a look at something more advanced in typography, kerning and tracking of letters and fonts."),
-        PageHeadline("Make space", topSpacing: true),
-        PageText("Both kerning and tracking improve the appearance and design of your text by adding or subtracting space between specific pairs of characters. With kerning, you can change the space between two characters and tracking changes the spacing of the whole paragraph. Adjust the tracking with great caution, as too much and too little can make reading a lot more difficult."),
-        PageTask("Set the font size to about 60 px and then adjust the tracking to let the word appear a bit more spaced out.", topSpacing: true),
+        PageText("continuance"),
+        PageHeadline("헤딩1", topSpacing: true),
+        PageText("본문1"),
+        PageTask("챌린지!", topSpacing: true),
         PageHeadline("Summary", topSpacing: true),
-        PageText("You can improve the readability of a font by adjusting its tracking. With kerning, you can change the distance between individual characters, that's often used for perfecting largely visible headlines."),
+        PageText("본문2"),
     ]
 )
 
@@ -119,7 +98,7 @@ let commonFate = Page(
     contentSubTitle: "Lesson 5",
     contentTitle: "The Law of Common Fate",
     titleImageName: "chart.bar",
-    playgroundView: .kerningPlaygroundView,
+    playgroundView: .proximityPlaygroundView,
     elements: [
         PageText("For this last lesson, we will take a look at something more advanced in typography, kerning and tracking of letters and fonts."),
         PageHeadline("Make space", topSpacing: true),
@@ -136,7 +115,7 @@ let closure = Page(
     contentSubTitle: "Lesson 6",
     contentTitle: "The Law of Closure",
     titleImageName: "moonphase.waning.crescent",
-    playgroundView: .kerningPlaygroundView,
+    playgroundView: .proximityPlaygroundView,
     elements: [
         PageText("For this last lesson, we will take a look at something more advanced in typography, kerning and tracking of letters and fonts."),
         PageHeadline("Make space", topSpacing: true),

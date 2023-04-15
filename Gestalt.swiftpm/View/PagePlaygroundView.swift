@@ -16,13 +16,11 @@ struct PagePlaygroundView: View {
             switch playgroundViewtoDraw {
             case .welcomePlaygroundView:
                 WelcomePlaygroundView(appState: appState)
-            case .sightPlacePlaygroundView:
+            case .continuancePlaygroundView:
                 FontsPlaygroundView(appState: appState)
             case .similarityPlaygroundView:
                 HierarchyPlaygroundView(appState: appState)
-            case .appPlaygroundView:
-                AppPlaygroundView(appState: appState)
-            case .kerningPlaygroundView:
+            case .proximityPlaygroundView:
                 KerningPlaygroundView(appState: appState)
             case .quizPlaygroundView:
                 QuizPlaygroundView(appState: appState)
