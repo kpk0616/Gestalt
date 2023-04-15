@@ -1,14 +1,14 @@
 import SwiftUI
 
 // This file contains all content that app displays, organized with Pages
-let BasicsCourse : [Page] = [welcome, fonts, hierarchy, detail, quiz]
+let BasicsCourse : [Page] = [welcome, sightPlace, similarity, proximity, continuance, commonFate, closure, quiz]
 
 /// All avalible PlaygroundViews that PageContentView can darw
 /// The switch case in PageContentView must cover that case for a view to appear
 enum PlaygroundViews {
     case welcomePlaygroundView
     case sightPlacePlaygroundView
-    case hierarchyPlaygroundView
+    case similarityPlaygroundView
     case appPlaygroundView
     case kerningPlaygroundView
     case quizPlaygroundView
@@ -24,47 +24,47 @@ let welcome = Page(
     id: "basics_welcome",
     title: "Welcome",
     contentSubTitle: "Welcome",
-    contentTitle: "Typography Basics Crashcourse",
-    titleImageName: "graduationcap.fill",
+    contentTitle: "Gestalt Theory Basics Course",
+    titleImageName: "hand.wave",
     playgroundView: .welcomePlaygroundView,
     elements: [
-        PageText("This course introduces you to fundamental rules of typography. When you're done, you'll know how to work with text better than the vast majority of people. Please be aware that this course covers the basics, there's still a whole lot more to explore."),
-        PageTask("To apply what you have learned, each lesson challenges you to accomplish a task. Interact with the controls in the Playground view on the right to solve the tasks. For now, simply click the blue button.", topSpacing: true),
-        PageHeadline("Focus on readability", topSpacing: true),
-        PageText("Good typography serves one purpose: It makes text greatly readable. It may also serve the purpose of creating an aesthetic visual appearance but readability is the major priority for every typographic work. Make sure that all your choices while working with text align with that goal."),
+        PageText("게슈탈트 이론입니다요."),
+        PageTask("게슈탈트 첫 챌린지 문장입니다요.", topSpacing: true),
+        PageHeadline("헤딩1", topSpacing: true),
+        PageText("본문본문"),
         PageDivider(topSpacing: true),
-        PageHeadline("Break the rules", topSpacing: true),
-        PageText("I have tried to write the fundamental rules of typography in such a way that they can help with decision-making in case of uncertainty. The rules are therefore much more a guideline than generally valid wisdom. If you know what you are doing, you can break these rules and still do great typographic work."),
+        PageHeadline("헤딩2", topSpacing: true),
+        PageText("본문본문"),
     ]
 )
 
-let fonts = Page(
+let sightPlace = Page(
     id: "basics_fonts",
-    title: "Fonts",
+    title: "Sight Place",
     contentSubTitle: "Lesson 1",
-    contentTitle: "Use one font",
-    titleImageName: "textformat",
+    contentTitle: "Positive Place & Negative Place",
+    titleImageName: "circle.righthalf.filled",
     playgroundView: .sightPlacePlaygroundView,
     elements: [
-        PageText("Fonts are the foundational building block of every typography work. There are countless fonts available, but they all fall into a few font categories. You can discover the most common of those below."),
-        PageCustomView(.fontsContentCustomView, topSpacing: true),
-        PageText("Each kind has its use cases but the by far most common font categories and the ones you should be using are Sans Serif and Serif fonts. Speaking generally, Sans Serif fonts should be preferred for screens and Serif fonts work best for print."),
+        PageText("포지티브와 네거티브 플레이스 설명"),
+        PageCustomView(.fontsContentCustomView, topSpacing: true), // 이건 지워야할듯?
+        PageText("본문내용"),
         PageDivider(topSpacing: true),
-        PageHeadline("Keep it simple", topSpacing: true),
-        PageText("As long as you are not absolutely sure what you are doing, it's best to stick to just one font for a project. You can still create hierarchy, as we will discover in an upcoming lesson. Choose well established and perfectly readable fonts like Helvetica (Sans Serif) or Garamond (Serif). If you choose to work with two different typefaces for a project, make sure that these have a strong contrast and are easily distinguishable."),
-        PageTask("You are designing an article preview for a newspaper app. In the playground on the right, apply what you have learned and select good fonts for that project.", topSpacing: true),
+        PageHeadline("헤딩1", topSpacing: true),
+        PageText("본문 내용"),
+        PageTask("챌린지!", topSpacing: true),
         PageHeadline("Summary", topSpacing: true),
-        PageText("For screens use Sans Serif and for print use Serif fonts. Stick to one font for a project and prefer well-established typefaces."),
+        PageText("요약본"),
     ]
 )
 
-let hierarchy = Page(
+let similarity = Page(
     id: "basics_hierarchy",
-    title: "Hierarchy",
+    title: "Similarity",
     contentSubTitle: "Lesson 2",
-    contentTitle: "Skip a weight and create hierarchy",
-    titleImageName: "text.alignleft",
-    playgroundView: .hierarchyPlaygroundView,
+    contentTitle: "The Law of Similarity",
+    titleImageName: "circle.grid.2x1",
+    playgroundView: .similarityPlaygroundView,
     elements: [
         PageText("Good typography lets readers easily understand the semantics of different paragraphs in a layout. We use hierarchy to achieve that desired effect."),
         PageHeadline("Font sizes", topSpacing: true),
@@ -79,12 +79,63 @@ let hierarchy = Page(
     ]
 )
 
-let detail = Page(
-    id: "basics_detail",
-    title: "Detail typography",
+let proximity = Page(
+    id: "proximity",
+    title: "Proximity",
     contentSubTitle: "Lesson 3",
-    contentTitle: "Pay attention to detail",
-    titleImageName: "text.magnifyingglass",
+    contentTitle: "The Law of Proximity",
+    titleImageName: "rectangle.grid.1x2",
+    playgroundView: .kerningPlaygroundView,
+    elements: [
+        PageText("For this last lesson, we will take a look at something more advanced in typography, kerning and tracking of letters and fonts."),
+        PageHeadline("Make space", topSpacing: true),
+        PageText("Both kerning and tracking improve the appearance and design of your text by adding or subtracting space between specific pairs of characters. With kerning, you can change the space between two characters and tracking changes the spacing of the whole paragraph. Adjust the tracking with great caution, as too much and too little can make reading a lot more difficult."),
+        PageTask("Set the font size to about 60 px and then adjust the tracking to let the word appear a bit more spaced out.", topSpacing: true),
+        PageHeadline("Summary", topSpacing: true),
+        PageText("You can improve the readability of a font by adjusting its tracking. With kerning, you can change the distance between individual characters, that's often used for perfecting largely visible headlines."),
+    ]
+)
+
+let continuance = Page(
+    id: "continuance",
+    title: "Continuance",
+    contentSubTitle: "Lesson 4",
+    contentTitle: "The Law of Continuance",
+    titleImageName: "staroflife.fill",
+    playgroundView: .kerningPlaygroundView,
+    elements: [
+        PageText("For this last lesson, we will take a look at something more advanced in typography, kerning and tracking of letters and fonts."),
+        PageHeadline("Make space", topSpacing: true),
+        PageText("Both kerning and tracking improve the appearance and design of your text by adding or subtracting space between specific pairs of characters. With kerning, you can change the space between two characters and tracking changes the spacing of the whole paragraph. Adjust the tracking with great caution, as too much and too little can make reading a lot more difficult."),
+        PageTask("Set the font size to about 60 px and then adjust the tracking to let the word appear a bit more spaced out.", topSpacing: true),
+        PageHeadline("Summary", topSpacing: true),
+        PageText("You can improve the readability of a font by adjusting its tracking. With kerning, you can change the distance between individual characters, that's often used for perfecting largely visible headlines."),
+    ]
+)
+
+let commonFate = Page(
+    id: "common_fate",
+    title: "Common Fate",
+    contentSubTitle: "Lesson 5",
+    contentTitle: "The Law of Common Fate",
+    titleImageName: "chart.bar",
+    playgroundView: .kerningPlaygroundView,
+    elements: [
+        PageText("For this last lesson, we will take a look at something more advanced in typography, kerning and tracking of letters and fonts."),
+        PageHeadline("Make space", topSpacing: true),
+        PageText("Both kerning and tracking improve the appearance and design of your text by adding or subtracting space between specific pairs of characters. With kerning, you can change the space between two characters and tracking changes the spacing of the whole paragraph. Adjust the tracking with great caution, as too much and too little can make reading a lot more difficult."),
+        PageTask("Set the font size to about 60 px and then adjust the tracking to let the word appear a bit more spaced out.", topSpacing: true),
+        PageHeadline("Summary", topSpacing: true),
+        PageText("You can improve the readability of a font by adjusting its tracking. With kerning, you can change the distance between individual characters, that's often used for perfecting largely visible headlines."),
+    ]
+)
+
+let closure = Page(
+    id: "closure",
+    title: "Closure",
+    contentSubTitle: "Lesson 6",
+    contentTitle: "The Law of Closure",
+    titleImageName: "moonphase.waning.crescent",
     playgroundView: .kerningPlaygroundView,
     elements: [
         PageText("For this last lesson, we will take a look at something more advanced in typography, kerning and tracking of letters and fonts."),

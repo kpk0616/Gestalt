@@ -18,7 +18,7 @@ struct PagePlaygroundView: View {
                 WelcomePlaygroundView(appState: appState)
             case .sightPlacePlaygroundView:
                 FontsPlaygroundView(appState: appState)
-            case .hierarchyPlaygroundView:
+            case .similarityPlaygroundView:
                 HierarchyPlaygroundView(appState: appState)
             case .appPlaygroundView:
                 AppPlaygroundView(appState: appState)
