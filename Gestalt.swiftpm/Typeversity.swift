@@ -2,9 +2,9 @@ import SwiftUI
 
 @main
 struct Typeversity: App {
-    var body: some Scene {
-        WindowGroup {
-            BaseView()
-        }
+  var body: some Scene {
+    WindowGroup {
+      BaseView()
     }
+  }
 }
