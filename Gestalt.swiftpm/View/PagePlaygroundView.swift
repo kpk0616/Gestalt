@@ -19,7 +19,7 @@ struct PagePlaygroundView: View {
             case .continuancePlaygroundView:
                 FontsPlaygroundView(appState: appState)
             case .similarityPlaygroundView:
-                HierarchyPlaygroundView(appState: appState)
+                SimilarityPlaygroundView(appState: appState)
             case .proximityPlaygroundView:
                 KerningPlaygroundView(appState: appState)
             case .quizPlaygroundView:

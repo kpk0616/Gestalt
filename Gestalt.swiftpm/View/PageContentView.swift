@@ -16,7 +16,7 @@ struct PageContentView : View {
     
     var body: some View {
         VStack(alignment: .leading, spacing: 0){
-            pageHeader
+//            pageHeader
             
             Rectangle()
                 .cornerRadius(6)
@@ -41,6 +41,8 @@ struct PageContentView : View {
     /// scrollable view that contains all PageElements of that page
     var pageContent : some View {
         ScrollView(showsIndicators: false){
+          pageHeader
+          
             ScrollViewReader { value in
                 VStack(alignment: .leading, spacing: spacingValue){
                     ForEach(currentPage.elements, id: \.self.id) { element in
@@ -132,7 +134,7 @@ struct PageContentView : View {
                         if let pageCustomView = element as? PageCustomView {
                             switch pageCustomView.customView {
                             case ContentCustomView.fontsContentCustomView:
-                                FontsContentCustomView()
+                                SimilarityContentCustomView()
                                     .padding(.top, pageCustomView.topSpacing ? topBottomSpacingValue : 0)
                                     .padding(.bottom, pageCustomView.bottomSpacing ? topBottomSpacingValue : 0)
                             }
