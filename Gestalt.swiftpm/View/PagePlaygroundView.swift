@@ -22,6 +22,10 @@ struct PagePlaygroundView: View {
                 SimilarityPlaygroundView(appState: appState)
             case .proximityPlaygroundView:
                 KerningPlaygroundView(appState: appState)
+            case .commonFatePlaygroundView:
+                CommonFatePlaygroundView(appState: appState)
+            case .closurePlaygroundView:
+                ClosurePlaygroundView(appState: appState)
             case .quizPlaygroundView:
                 QuizPlaygroundView(appState: appState)
             }

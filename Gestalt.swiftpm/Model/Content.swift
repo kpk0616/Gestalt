@@ -10,6 +10,8 @@ enum PlaygroundViews {
     case similarityPlaygroundView
     case proximityPlaygroundView
     case continuancePlaygroundView
+    case commonFatePlaygroundView
+    case closurePlaygroundView
     case quizPlaygroundView
 }
 
@@ -98,7 +100,7 @@ let commonFate = Page(
     contentSubTitle: "Lesson 5",
     contentTitle: "The Law of Common Fate",
     titleImageName: "chart.bar",
-    playgroundView: .proximityPlaygroundView,
+    playgroundView: .commonFatePlaygroundView,
     elements: [
         PageText("For this last lesson, we will take a look at something more advanced in typography, kerning and tracking of letters and fonts."),
         PageHeadline("Make space", topSpacing: true),
@@ -115,7 +117,7 @@ let closure = Page(
     contentSubTitle: "Lesson 6",
     contentTitle: "The Law of Closure",
     titleImageName: "moonphase.waning.crescent",
-    playgroundView: .proximityPlaygroundView,
+    playgroundView: .closurePlaygroundView,
     elements: [
         PageText("For this last lesson, we will take a look at something more advanced in typography, kerning and tracking of letters and fonts."),
         PageHeadline("Make space", topSpacing: true),
