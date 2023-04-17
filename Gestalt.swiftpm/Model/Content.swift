@@ -1,7 +1,7 @@
 import SwiftUI
 
 // This file contains all content that app displays, organized with Pages
-let BasicsCourse : [Page] = [welcome, similarity, proximity, continuance, commonFate, closure, quiz]
+let BasicsCourse : [Page] = [welcome, similarity, proximity, commonFate, closure, quiz]
 
 /// All avalible PlaygroundViews that PageContentView can darw
 /// The switch case in PageContentView must cover that case for a view to appear

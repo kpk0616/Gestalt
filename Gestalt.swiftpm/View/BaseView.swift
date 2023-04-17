@@ -13,14 +13,6 @@ struct BaseView: View {
       
       // Content
       PageContentView(appState: appState)
-      
-      //            // Divider
-      //            Rectangle()
-      //                .foregroundColor(Color(uiColor: UIColor.secondarySystemBackground))
-      //                .frame(width: 2)
-      //
-      //            // Show the PlaygroundView
-      //            PagePlaygroundView(appState: appState)
     }
     .ignoresSafeArea()
   }
