@@ -59,7 +59,7 @@ struct SimilarityPlaygroundView: View {
               .frame(width: circleDefaultSize, height: circleDefaultSize)
               .padding(10)
               .foregroundColor(circleDefaultColor)
-            Spacer(minLength: 50)
+            Spacer(minLength: 30)
           }
           VStack {
             Spacer(minLength: 50)
@@ -89,7 +89,7 @@ struct SimilarityPlaygroundView: View {
             Spacer(minLength: 50)
           }
           VStack {
-            Spacer(minLength: 50)
+            Spacer(minLength: 30)
             Circle()
               .frame(width: circleChangeSize, height: circleChangeSize)
               .padding(10)
@@ -113,7 +113,7 @@ struct SimilarityPlaygroundView: View {
                 .padding(10)
                 .foregroundColor(circleDefaultColor)
             }
-            Spacer(minLength: 50)
+            Spacer(minLength: 30)
           }
         } // HStack End
         Image(systemName: "checkmark.circle.fill")
