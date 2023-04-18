@@ -20,10 +20,8 @@ struct PageContentView : View {
       
       Rectangle()
         .cornerRadius(6)
-        .foregroundColor(Color(uiColor: UIColor.secondarySystemBackground))
-        .frame(height: 2)
-        .padding(.top, 25)
-        .padding(.bottom, 15)
+        .foregroundColor(.white)
+        .frame(height: 1)
       
       pageContent
     }
