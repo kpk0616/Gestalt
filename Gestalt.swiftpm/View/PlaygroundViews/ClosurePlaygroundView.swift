@@ -11,18 +11,15 @@ struct ClosurePlaygroundView: View {
   
   // manage user progress
   @ObservedObject var appState: AppState
-  
-  @State private var kerning = -6.0
-  @State private var fontSize = 80.0
   // Image hidden boolean
   @State private var packmanOpacityOne = 0.0
   @State private var packmanOpacityTwo = 0.0
   @State private var packmanOpacityThree = 0.0
   @State private var triangleOpacityOne = 0.0
-  @State private var triangleOpacityTwo = 0.0
+  @State private var triangleOpacityTwo = 1.0
   @State private var triangleOpacityThree = 0.0
   // button count
-  @State private var buttonTapCount = 0
+  @State private var buttonTapCount = 1
   // animation value
   @State private var isVisible = false
   // image color
@@ -124,23 +121,18 @@ struct ClosurePlaygroundView: View {
             .transition(.scale.combined(with: .opacity))
         }
       }
-      .onChange(of: kerning) { newValue in
-        checkChallengeCompleted()
-      }
-      .onChange(of: fontSize) { newValue in
-        checkChallengeCompleted()
-      } // Vstack End
+    } // Vstack End
     Spacer()
-    }
-  } // body End
-  
-  func checkChallengeCompleted(){
-    if (buttonTapCount >= 6) {
-      /// currently opend page
-      let currentPage = BasicsCourse[appState.currentPage]
-      // Mark lesson as completed
-      appState.appendToCompletionProgress(id: currentPage.id)
-    }
   }
+} // body End
+
+func checkChallengeCompleted(){
+  if (buttonTapCount >= 6) {
+    /// currently opend page
+    let currentPage = BasicsCourse[appState.currentPage]
+    // Mark lesson as completed
+    appState.appendToCompletionProgress(id: currentPage.id)
+  }
+}
 }
 
