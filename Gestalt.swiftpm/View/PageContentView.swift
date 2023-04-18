@@ -20,7 +20,7 @@ struct PageContentView : View {
       
       Rectangle()
         .cornerRadius(6)
-        .foregroundColor(.white)
+        .foregroundColor(Color(UIColor.systemBackground))
         .frame(height: 1)
       
       pageContent

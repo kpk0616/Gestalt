@@ -79,10 +79,12 @@ struct SimilarityPlaygroundView: View {
             } else {
               Rectangle()
                 .frame(width: circleChangeSize, height: circleChangeSize)
+                .cornerRadius(10)
                 .padding(10)
                 .foregroundColor(circleDefaultColor)
               Rectangle()
                 .frame(width: circleChangeSize, height: circleChangeSize)
+                .cornerRadius(10)
                 .padding(10)
                 .foregroundColor(circleDefaultColor)
             }
@@ -106,10 +108,12 @@ struct SimilarityPlaygroundView: View {
             } else {
               Rectangle()
                 .frame(width: circleDefaultSize, height: circleDefaultSize)
+                .cornerRadius(10)
                 .padding(10)
                 .foregroundColor(circleChangeColor)
               Rectangle()
                 .frame(width: circleChangeSize, height: circleChangeSize)
+                .cornerRadius(10)
                 .padding(10)
                 .foregroundColor(circleDefaultColor)
             }
