@@ -84,14 +84,14 @@ struct ProximityPlaygroundView: View {
       .padding(.bottom, 5)
     } // Outer VStack End
     .onChange(of: kerning) { newValue in
-      checkChallengeCompleted()
+      checkProximityChallengeCompleted()
     }
     .onChange(of: proximityDistance) { newValue in
-      checkChallengeCompleted()
+      checkProximityChallengeCompleted()
     }
   } // body End
   
-  func checkChallengeCompleted(){
+  private func checkProximityChallengeCompleted(){
     if (proximityDistance > 40) {
       /// currently opend page
       let currentPage = lessons[progressState.currentPage]

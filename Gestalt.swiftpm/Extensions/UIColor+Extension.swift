@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+// inspired by: https://stackoverflow.com/questions/56874133/use-hex-color-in-swiftui
 extension Color {
   init(hex: UInt, alpha: Double = 1) {
     self.init(

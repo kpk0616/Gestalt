@@ -98,7 +98,7 @@ struct ClosurePlaygroundView: View {
             case 6:
               triangleOpacityThree = 1.0
               isVisible.toggle()
-              checkChallengeCompleted()
+              checkClosureChallengeCompleted()
             default:
               print("default")
             }
@@ -125,7 +125,7 @@ struct ClosurePlaygroundView: View {
     }
   } // body End
   
-  func checkChallengeCompleted(){
+  private func checkClosureChallengeCompleted(){
     if (buttonTapCount >= 6) {
       /// currently opend page
       let currentPage = lessons[progressState.currentPage]
