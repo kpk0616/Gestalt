@@ -15,18 +15,15 @@ struct PageContentView : View {
   }
   
   var body: some View {
-    VStack(alignment: .leading, spacing: 0){
-      //            pageHeader
-      
-      Rectangle()
-        .cornerRadius(6)
-        .foregroundColor(Color(UIColor.systemBackground))
-        .frame(height: 1)
-      
-      pageContent
+    ZStack {
+      Color(hex: 0x1C1934)
+      VStack(alignment: .leading, spacing: 0){
+        //            pageHeader
+        pageContent
+      }
+      .padding(30)
+      .padding(.top, 15)
     }
-    .padding(30)
-    .padding(.top, 15)
   }
   
   
@@ -54,6 +51,7 @@ struct PageContentView : View {
                 .lineSpacing(3.5)
                 .padding(.top, pageHeadline.topSpacing ? topBottomSpacingValue : 0)
                 .padding(.bottom, pageHeadline.bottomSpacing ? topBottomSpacingValue : 0)
+                .foregroundColor(.white)
             }
             
             // Draw PageText elements
@@ -63,6 +61,7 @@ struct PageContentView : View {
                 .font(.callout)
                 .padding(.top, pageText.topSpacing ? topBottomSpacingValue : 0)
                 .padding(.bottom, pageText.bottomSpacing ? topBottomSpacingValue : 0)
+                .foregroundColor(.white)
             }
             
             // Draw PageImage elements
@@ -86,7 +85,7 @@ struct PageContentView : View {
             if let pageTask = element as? PageTask {
               HStack{
                 Rectangle()
-                  .foregroundColor(.accentColor)
+                  .foregroundColor(.yellow)
                   .frame(width: 5)
                   .cornerRadius(10)
                   .padding(1)
@@ -94,10 +93,11 @@ struct PageContentView : View {
                   Text("Challenge")
                     .lineSpacing(3.5)
                     .font(.footnote)
-                    .foregroundColor(.secondary)
+                    .foregroundColor(.yellow)
                   Text(pageTask.text)
                     .font(.callout)
                     .padding(.top, 2)
+                    .foregroundColor(.white)
                   
                   if let subTasks = pageTask.subTasks {
                     Rectangle()
@@ -121,7 +121,7 @@ struct PageContentView : View {
                 Spacer()
               }
               .padding(10)
-              .background(Color(uiColor: .secondarySystemBackground))
+              .background(Color(hex: 0x696682))
               .cornerRadius(10)
               .padding(.top, pageTask.topSpacing ? topBottomSpacingValue : 0)
               .padding(.bottom, pageTask.bottomSpacing ? topBottomSpacingValue : 0)
@@ -172,11 +172,13 @@ struct PageContentView : View {
           Spacer()
           Text("Next lesson")
             .fontWeight(.medium)
+            .foregroundColor(.yellow)
             .padding(5)
           Spacer()
         }
         .padding(10)
-        .background(Color(uiColor: UIColor.secondarySystemBackground))
+//        .background(Color(uiColor: UIColor.secondarySystemBackground))
+        .background(Color(hex: 0x696682))
         .cornerRadius(10)
         .padding(.bottom, appState.currentPage - 1 < 0 ? 10 : 0 )
         .keyboardShortcut(.downArrow, modifiers: [])
@@ -190,11 +192,13 @@ struct PageContentView : View {
           Spacer()
           Text("Previous")
             .font(.callout)
-            .foregroundColor(.secondary)
+            .foregroundColor(.white)
             .fontWeight(.medium)
           Spacer()
         }
         .padding(13)
+        .background(Color(hex: 0x363350))
+        .cornerRadius(10)
         .keyboardShortcut(.upArrow, modifiers: [])
       }
     }
@@ -206,7 +210,7 @@ struct PageContentView : View {
   var divider: some View {
     Rectangle()
       .cornerRadius(6)
-      .foregroundColor(Color(uiColor: UIColor.secondarySystemBackground))
+      .foregroundColor(Color(hex: 0x1C1934))
       .frame(height: 2)
   }
   
@@ -219,11 +223,11 @@ struct PageContentView : View {
         Image(systemName: currentPage.titleImageName)
           .resizable()
           .scaledToFit()
-          .foregroundColor(Color(uiColor: .systemBackground))
+          .foregroundColor(Color(uiColor: .white))
           .frame(width: 30, height: 30)
           .padding()
           .background(
-            Color.accentColor
+            LinearGradient(colors: [Color(hex: 0xE6504D), Color(hex: 0x4077F4)], startPoint: .topLeading, endPoint: .bottomTrailing)
               .cornerRadius(15)
           )
         Spacer()
@@ -232,11 +236,12 @@ struct PageContentView : View {
       VStack(spacing: 6){
         Text(currentPage.contentSubTitle)
           .font(.caption)
-          .foregroundColor(.secondary)
+          .foregroundColor(.white)
           .padding(.top, 7)
         Text(currentPage.contentTitle)
           .font(.title2).fontWeight(.semibold)
           .multilineTextAlignment(.center)
+          .foregroundColor(.white)
       }
       .padding(.top)
     }

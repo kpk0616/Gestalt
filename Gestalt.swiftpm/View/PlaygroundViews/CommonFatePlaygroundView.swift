@@ -22,7 +22,7 @@ struct CommonFatePlaygroundView: View {
   var body: some View {
     ZStack {
       Rectangle()
-        .foregroundColor(Color(UIColor.systemBackground))
+        .foregroundColor(Color(hex: 0x363350))
       VStack{
         Spacer()
           .frame(height: 30)
@@ -30,7 +30,7 @@ struct CommonFatePlaygroundView: View {
           Spacer()
           Image("birds")
             .renderingMode(.template)
-            .foregroundColor(.brown)
+            .foregroundColor(Color(hex: 0xEBFF00))
             .rotationEffect(rotationAngle, anchor: .topLeading)
             .position(position) // 현재 위치로 이미지를 배치
           Spacer()
@@ -40,7 +40,7 @@ struct CommonFatePlaygroundView: View {
         Image(systemName: "checkmark.circle.fill")
           .resizable()
           .scaledToFit()
-          .foregroundColor(Color.green)
+          .foregroundColor(Color.yellow)
           .frame(width: 50, height: 50)
           .padding(5)
           .opacity(checkMarkOpacity)

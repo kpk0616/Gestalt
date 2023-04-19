@@ -18,6 +18,7 @@ struct PageNavigationView: View {
       Text("Lessons")
         .font(.caption).fontWeight(.medium)
         .padding(.bottom, 10)
+        .foregroundColor(.white)
       
       pageOverview
       
@@ -25,7 +26,8 @@ struct PageNavigationView: View {
     }
     .padding(18)
     .padding(.top, 25)
-    .background(Color(uiColor: .secondarySystemBackground))
+//    .background(Color(uiColor: .secondarySystemBackground))
+    .background(Color(hex: 0x363350))
     .animation(Animation.timingCurve(0.44, 1.86, 0.61, 0.99, duration: 0.5), value: appState.completionProgress)
     .sheet(isPresented: $showingAboutView){
       AboutView()
@@ -39,21 +41,26 @@ struct PageNavigationView: View {
     VStack(alignment: .leading, spacing: 4){
       Text("Gestalt Theory")
         .font(.footnote)
+        .foregroundColor(.white)
       Text("Basics Course")
         .font(.title3).fontWeight(.semibold)
         .padding(.bottom, 20)
+        .foregroundColor(.white)
       ProgressView(value: Float(appState.completionProgress.count), total: Float(BasicsCourse.count))
+        .progressViewStyle(LinearProgressViewStyle(tint: .yellow))
       HStack{
         Text("\((appState.completionProgress.count) * 100 / BasicsCourse.count) % completed")
           .font(.caption)
-          .foregroundColor(.secondary)
+//          .foregroundColor(.secondary)
+          .foregroundColor(.white)
         Spacer()
         Button {
           appState.resetCompletionProgress()
         } label: {
-          Text("Reset progess")
+          Text("Reset progress")
             .font(.caption)
-            .foregroundColor(.accentColor)
+//            .foregroundColor(.accentColor)
+            .foregroundColor(.yellow)
         }
         
       }
@@ -79,7 +86,7 @@ struct PageNavigationView: View {
                   Image(systemName: "checkmark.circle.fill")
                     .resizable()
                     .scaledToFit()
-                    .foregroundColor(Color.green)
+                    .foregroundColor(Color.yellow)
                     .frame(width: 20, height: 20)
                     .padding(5)
                     .padding(.trailing, 4)
@@ -88,7 +95,7 @@ struct PageNavigationView: View {
                   Image(systemName: page.titleImageName)
                     .resizable()
                     .scaledToFit()
-                    .foregroundColor(Color.accentColor)
+                    .foregroundColor(Color.white)
                     .frame(width: 20, height: 20)
                     .padding(5)
                     .padding(.trailing, 4)
@@ -96,7 +103,8 @@ struct PageNavigationView: View {
                 }
                 Text(page.title)
                   .font(.callout)
-                  .foregroundColor(.primary)
+//                  .foregroundColor(.primary)
+                  .foregroundColor(.white)
                 Spacer()
               }
               .padding(10)

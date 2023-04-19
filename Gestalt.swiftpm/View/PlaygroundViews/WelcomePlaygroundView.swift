@@ -25,13 +25,15 @@ struct WelcomePlaygroundView: View {
       // 챌린지 배경 + 사진 Start
       if (!challengeChecked) { // 챌린지 완료 전 (기본)
         ZStack {
-          Color(UIColor.systemBackground)
+//          Color(UIColor.systemBackground)
+          Color(hex: 0x363350)
           VStack {
             Spacer(minLength: 45)
             Image("sightSpaceExample")
               .resizable()
               .renderingMode(.template)
-              .foregroundColor(colorScheme == .dark ? Color.white : Color.black)
+//              .foregroundColor(colorScheme == .dark ? Color.white : Color.black)
+              .foregroundColor(.white)
               .scaledToFit()
               .frame(width: 250, height: 250, alignment: .center)
               .padding(.bottom, 50)
@@ -40,13 +42,16 @@ struct WelcomePlaygroundView: View {
       }
       else {
         ZStack { // 챌린지 후 (버튼 클릭된 상태)
-          Color(UIColor.systemBackground).colorInvert()
+//          Color(UIColor.systemBackground).colorInvert()
+          Color(.white)
+//            .mask(LinearGradient(gradient: Gradient(colors: [.black, .black, .black, .clear]), startPoint: .bottom, endPoint: .top))
           VStack {
             Spacer(minLength: 45)
             Image("sightSpaceExample")
               .resizable()
               .renderingMode(.template)
-              .foregroundColor(colorScheme == .dark ? Color.black : Color.white)
+//              .foregroundColor(colorScheme == .dark ? Color.black : Color.white)
+              .foregroundColor(Color(hex:0x363350))
               .scaledToFit()
               .frame(width: 250, height: 250, alignment: .center)
               .padding(.bottom, 50)
@@ -59,6 +64,7 @@ struct WelcomePlaygroundView: View {
         Text("This is the playground view where you will be soving the callenges.")
           .multilineTextAlignment(.center)
           .padding(.bottom, 20)
+          .foregroundColor(.white)
         
         Spacer()
       }
@@ -73,11 +79,14 @@ struct WelcomePlaygroundView: View {
             challengeChecked.toggle()
           } label: {
             Text("Got it")
+              .fontWeight(.bold)
               .padding(12)
               .padding(.leading, 15)
               .padding(.trailing, 15)
-              .background(Color.accentColor.opacity(0.1))
+//              .background(Color.accentColor.opacity(0.1))
+              .background(Color(hex: 0x696682))
               .cornerRadius(10)
+              .foregroundColor(.yellow)
               .transition(.scale.combined(with: .opacity))
           }
           
@@ -85,7 +94,7 @@ struct WelcomePlaygroundView: View {
           Image(systemName: "checkmark.circle.fill")
             .resizable()
             .scaledToFit()
-            .foregroundColor(Color.green)
+            .foregroundColor(Color.yellow)
             .frame(width: 40, height: 40)
             .padding(5)
             .padding(.trailing, 4)

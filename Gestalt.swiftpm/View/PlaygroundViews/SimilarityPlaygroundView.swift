@@ -8,8 +8,8 @@ struct SimilarityPlaygroundView: View {
   // Circle variables
   @State private var circleDefaultSize = 70.0
   @State private var circleChangeSize = 70.0
-  @State private var circleDefaultColor = Color(UIColor(.green))
-  @State private var circleChangeColor = Color(UIColor(.green))
+  @State private var circleDefaultColor = Color(hex: 0x34EBF6)
+  @State private var circleChangeColor = Color(hex: 0x34EBF6)
   @State private var animationBoolean = false
   @State private var changeShapeBoolean = false
   
@@ -24,7 +24,7 @@ struct SimilarityPlaygroundView: View {
       .pickerStyle(SegmentedPickerStyle())
       .onChange(of: selectedType){ newValue in
         circleChangeSize = 70.0
-        circleChangeColor = Color(UIColor(.green))
+        circleChangeColor = Color(hex: 0x34EBF6)
         changeShapeBoolean = false
         animationBoolean.toggle()
         
@@ -32,7 +32,7 @@ struct SimilarityPlaygroundView: View {
         case 0: // basic (default)
           print("basic")
         case 1: // color
-          circleChangeColor = Color(UIColor(.yellow))
+          circleChangeColor = Color(hex: 0xD9EB07)
         case 2: // shape
           changeShapeBoolean = true
         case 3: // size
@@ -123,7 +123,7 @@ struct SimilarityPlaygroundView: View {
         Image(systemName: "checkmark.circle.fill")
           .resizable()
           .scaledToFit()
-          .foregroundColor(Color.green)
+          .foregroundColor(Color.yellow)
           .frame(width: 50, height: 50)
           .padding(5)
           .opacity(checkMarkOpacity)

@@ -23,8 +23,8 @@ struct ClosurePlaygroundView: View {
   // animation value
   @State private var isVisible = false
   // image color
-  @State private var packmanColor = Color(UIColor(.yellow))
-  @State private var triangleColor = Color(UIColor(.gray))
+  @State private var packmanColor = Color(hex: 0xFF007A)
+  @State private var triangleColor = Color(UIColor(.white))
   
   var body: some View { // body Start
     HStack {
@@ -105,17 +105,17 @@ struct ClosurePlaygroundView: View {
           } label: {
             Text("Tap It!")
               .font(.callout)
-              .foregroundColor(.white)
+              .foregroundColor(.yellow)
               .fontWeight(.medium)
           }
           .padding(13)
-          .background(Color.blue)
+          .background(Color(hex: 0x696682))
           .cornerRadius(20) // button end
         } else {
           Image(systemName: "checkmark.circle.fill")
             .resizable()
             .scaledToFit()
-            .foregroundColor(Color.green)
+            .foregroundColor(Color.yellow)
             .frame(width: 50, height: 50)
             .padding(5)
             .transition(.scale.combined(with: .opacity))
