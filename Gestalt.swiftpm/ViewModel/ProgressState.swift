@@ -1,7 +1,7 @@
 import SwiftUI
 
 /// Manages and saves user progress persistantly
-public class AppState: ObservableObject {
+public class ProgressState: ObservableObject {
   
   public init() {
     // init currentPage with data from user defaults

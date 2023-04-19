@@ -3,7 +3,7 @@ import SwiftUI
 struct BaseView: View {
   
   /// manage user progress
-  @StateObject var appState = AppState()
+  @StateObject var appState = ProgressState()
   
   var body: some View {
     HStack(spacing: 0){

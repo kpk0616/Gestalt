@@ -10,7 +10,7 @@ import SwiftUI
 struct CommonFatePlaygroundView: View {
   
   // manage user progress
-  @ObservedObject var appState: AppState
+  @ObservedObject var progressState: ProgressState
   // Position variables
   @State private var checkMarkOpacity = 0.0
   
@@ -66,9 +66,9 @@ struct CommonFatePlaygroundView: View {
   
   private func checkCommonFateChallengeCompleted(){
     /// currently opend page
-    let currentPage = BasicsCourse[appState.currentPage]
+    let currentPage = lessons[progressState.currentPage]
     // Mark lesson as completed
-    appState.appendToCompletionProgress(id: currentPage.id)
+    progressState.appendToCompletionProgress(id: currentPage.id)
     animationBoolean.toggle()
     checkMarkOpacity = 1.0
   }

@@ -10,7 +10,7 @@ import SwiftUI
 struct ClosurePlaygroundView: View {
   
   // manage user progress
-  @ObservedObject var appState: AppState
+  @ObservedObject var progressState: ProgressState
   // Image hidden boolean
   @State private var packmanOpacityOne = 0.0
   @State private var packmanOpacityTwo = 0.0
@@ -128,9 +128,9 @@ struct ClosurePlaygroundView: View {
   func checkChallengeCompleted(){
     if (buttonTapCount >= 6) {
       /// currently opend page
-      let currentPage = BasicsCourse[appState.currentPage]
+      let currentPage = lessons[progressState.currentPage]
       // Mark lesson as completed
-      appState.appendToCompletionProgress(id: currentPage.id)
+      progressState.appendToCompletionProgress(id: currentPage.id)
     }
   }
 }

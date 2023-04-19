@@ -3,14 +3,14 @@ import SwiftUI
 struct PageContentView : View {
   
   /// manage user progress
-  @ObservedObject private var appState: AppState
+  @ObservedObject private var appState: ProgressState
   
   /// currently opend page
   var currentPage : Page {
-    BasicsCourse[appState.currentPage]
+    lessons[appState.currentPage]
   }
   
-  public init(appState: AppState) {
+  public init(appState: ProgressState) {
     self.appState = appState
   }
   
@@ -139,7 +139,7 @@ struct PageContentView : View {
         
         
         // show footer navigation only if not on last page
-        if appState.currentPage + 1 < BasicsCourse.count {
+        if appState.currentPage + 1 < lessons.count {
           divider
           navigationButtons
             .padding(.bottom, spacingValue)
@@ -154,7 +154,7 @@ struct PageContentView : View {
   /// navigation buttons for going back and forth in the pages, buttons will only be displayed if nagivagtion possible
   var  navigationButtons : some View {
     VStack{
-      if appState.currentPage + 1 < BasicsCourse.count {
+      if appState.currentPage + 1 < lessons.count {
         Button {
           //appState.appendToCompletionProgress(id: currentPage.id)
           appState.currentPage += 1

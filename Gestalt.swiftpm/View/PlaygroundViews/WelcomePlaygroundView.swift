@@ -10,14 +10,14 @@ import SwiftUI
 struct WelcomePlaygroundView: View {
   
   // manage user progress
-  @ObservedObject var appState: AppState
+  @ObservedObject var appState: ProgressState
   @State var challengeChecked: Bool = false
   @Environment(\.colorScheme) var colorScheme
   
   
   /// currently opend page
   var currentPage : Page {
-    BasicsCourse[appState.currentPage]
+    lessons[appState.currentPage]
   }
   
   var body: some View {
@@ -25,14 +25,12 @@ struct WelcomePlaygroundView: View {
       // 챌린지 배경 + 사진 Start
       if (!challengeChecked) { // 챌린지 완료 전 (기본)
         ZStack {
-//          Color(UIColor.systemBackground)
           Color(hex: 0x363350)
           VStack {
             Spacer(minLength: 45)
             Image("sightSpaceExample")
               .resizable()
               .renderingMode(.template)
-//              .foregroundColor(colorScheme == .dark ? Color.white : Color.black)
               .foregroundColor(.white)
               .scaledToFit()
               .frame(width: 250, height: 250, alignment: .center)
@@ -42,15 +40,12 @@ struct WelcomePlaygroundView: View {
       }
       else {
         ZStack { // 챌린지 후 (버튼 클릭된 상태)
-//          Color(UIColor.systemBackground).colorInvert()
           Color(.white)
-//            .mask(LinearGradient(gradient: Gradient(colors: [.black, .black, .black, .clear]), startPoint: .bottom, endPoint: .top))
           VStack {
             Spacer(minLength: 45)
             Image("sightSpaceExample")
               .resizable()
               .renderingMode(.template)
-//              .foregroundColor(colorScheme == .dark ? Color.black : Color.white)
               .foregroundColor(Color(hex:0x363350))
               .scaledToFit()
               .frame(width: 250, height: 250, alignment: .center)
@@ -73,7 +68,7 @@ struct WelcomePlaygroundView: View {
         if !appState.completionProgress.contains(currentPage.id) {
           Button {
             /// currently opend page
-            let currentPage = BasicsCourse[appState.currentPage]
+            let currentPage = lessons[appState.currentPage]
             // Mark lesson as completed
             appState.appendToCompletionProgress(id: currentPage.id)
             challengeChecked.toggle()
@@ -82,7 +77,6 @@ struct WelcomePlaygroundView: View {
               .padding(12)
               .padding(.leading, 15)
               .padding(.trailing, 15)
-//              .background(Color.accentColor.opacity(0.1))
               .background(Color(hex: 0x696682))
               .cornerRadius(10)
               .foregroundColor(.yellow)

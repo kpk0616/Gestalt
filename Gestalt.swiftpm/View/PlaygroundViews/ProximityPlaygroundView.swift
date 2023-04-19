@@ -3,9 +3,7 @@ import SwiftUI
 struct ProximityPlaygroundView: View {
   
   // manage user progress
-  @ObservedObject var appState: AppState
-  
-  @State private var kerning = -6.0
+  @ObservedObject var progressState: ProgressState
   @State private var proximityDistance = 10.0
   
   @State private var cornerRadius = 10.0
@@ -94,9 +92,9 @@ struct ProximityPlaygroundView: View {
   func checkChallengeCompleted(){
     if (proximityDistance > 40) {
       /// currently opend page
-      let currentPage = BasicsCourse[appState.currentPage]
+      let currentPage = lessons[progressState.currentPage]
       // Mark lesson as completed
-      appState.appendToCompletionProgress(id: currentPage.id)
+      progressState.appendToCompletionProgress(id: currentPage.id)
     }
   }
 }

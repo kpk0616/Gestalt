@@ -2,10 +2,10 @@ import SwiftUI
 
 struct PageNavigationView: View {
   
-  public init(appState: AppState) { self.appState = appState }
+  public init(appState: ProgressState) { self.appState = appState }
   
   /// manage user progress
-  @ObservedObject private var appState: AppState
+  @ObservedObject private var appState: ProgressState
   
   var body : some View {
     VStack(alignment: .leading, spacing: 0){
@@ -35,9 +35,9 @@ struct PageNavigationView: View {
         .padding(.bottom, 20)
         .foregroundColor(.white)
       HStack {
-        ProgressView(value: Float(appState.completionProgress.count), total: Float(BasicsCourse.count))
+        ProgressView(value: Float(appState.completionProgress.count), total: Float(lessons.count))
           .progressViewStyle(LinearProgressViewStyle(tint: .yellow))
-        Text("\((appState.completionProgress.count) * 100 / BasicsCourse.count) %")
+        Text("\((appState.completionProgress.count) * 100 / lessons.count) %")
           .font(.caption)
           .foregroundColor(.white)
       }
@@ -63,9 +63,9 @@ struct PageNavigationView: View {
     VStack(alignment: .leading){
       ScrollView{
         VStack(spacing: 0){
-          ForEach(BasicsCourse, id: \.self.id) { page in
+          ForEach(lessons, id: \.self.id) { page in
             Button {
-              let index = BasicsCourse.firstIndex(of: page) ?? 0
+              let index = lessons.firstIndex(of: page) ?? 0
               appState.currentPage = index
             } label: {
               
@@ -95,7 +95,7 @@ struct PageNavigationView: View {
                 Spacer()
               }
               .padding(10)
-              .background(page.id == BasicsCourse[appState.currentPage].id ? Color(hex: 0x696682) : Color.clear )
+              .background(page.id == lessons[appState.currentPage].id ? Color(hex: 0x696682) : Color.clear )
               .cornerRadius(10)
             }
           }

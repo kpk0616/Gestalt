@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct SimilarityPlaygroundView: View {        
-  @ObservedObject var appState: AppState
+  @ObservedObject var appState: ProgressState
   @State private var checkMarkOpacity = 0.0
   
   @State private var selectedType = 0
@@ -133,7 +133,7 @@ struct SimilarityPlaygroundView: View {
     } // VStack End
   } // body End
   private func checkSimilarityChallengeCompleted() {
-    let currentPage = BasicsCourse[appState.currentPage]
+    let currentPage = lessons[appState.currentPage]
     // Mark lesson as completed
     appState.appendToCompletionProgress(id: currentPage.id)
     checkMarkOpacity = 1.0

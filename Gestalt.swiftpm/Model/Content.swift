@@ -1,7 +1,7 @@
 import SwiftUI
 
 // This file contains all content that app displays, organized with Pages
-let BasicsCourse : [Page] = [welcome, similarity, proximity, commonFate, closure, quiz]
+let lessons : [Page] = [welcome, similarity, proximity, commonFate, closure, quiz]
 
 /// All avalible PlaygroundViews that PageContentView can darw
 /// The switch case in PageContentView must cover that case for a view to appear
@@ -13,12 +13,6 @@ enum PlaygroundViews {
   case commonFatePlaygroundView
   case closurePlaygroundView
   case quizPlaygroundView
-}
-
-/// All avalible ContentCustomView that PageContentView can darw
-/// The switch case in PageContentView must cover that case for a view to appear
-enum ContentCustomView {
-  case fontsContentCustomView
 }
 
 let welcome = Page(

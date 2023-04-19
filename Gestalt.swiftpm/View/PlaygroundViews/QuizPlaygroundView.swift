@@ -2,12 +2,12 @@ import SwiftUI
 
 struct QuizPlaygroundView: View {
   
-  init(appState: AppState){
-    self.appState = appState
+  init(progressState: ProgressState){
+    self.progressState = progressState
   }
   
   // manage user progress
-  @ObservedObject var appState: AppState
+  @ObservedObject var progressState: ProgressState
   
   @Environment(\.colorScheme) private var colorScheme
   
@@ -163,7 +163,7 @@ struct QuizPlaygroundView: View {
       }
     } else {
       // mark as finished
-      let currentPage = BasicsCourse[appState.currentPage]
+      let currentPage = lessons[appState.currentPage]
       appState.appendToCompletionProgress(id: currentPage.id)
       
       DispatchQueue.main.asyncAfter(deadline: .now() + (0.01) ) {

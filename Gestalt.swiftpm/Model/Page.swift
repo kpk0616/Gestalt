@@ -108,14 +108,3 @@ class PageDivider : PageElement {
   }
 }
 
-/// allows to darw any custom view inside of the content area
-/// A custom view must be registered in the eum PageCustomView and the switch case in PageContentView must cover that case for a view to appear
-class PageCustomView : PageElement {
-  var customView: ContentCustomView
-  
-  /// topSpacing and bottomSpacing has deafult values of false if not specified
-  init(_ customView: ContentCustomView, topSpacing: Bool = false, bottomSpacing: Bool = false) {
-    self.customView = customView
-    super.init(topSpacing, bottomSpacing)
-  }
-}
