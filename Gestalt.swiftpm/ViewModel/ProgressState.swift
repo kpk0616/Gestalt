@@ -3,12 +3,14 @@ import SwiftUI
 /// Manages and saves user progress persistantly
 public class ProgressState: ObservableObject {
   
+  private let userDefaults = UserDefaults.standard
+  
   public init() {
     // init currentPage with data from user defaults
-    currentPage = UserDefaults.standard.integer(forKey: "currentPage")
+    currentPage = userDefaults.integer(forKey: "currentPage")
     
     // init completionProgress with data from user defaults
-    if let savedCompletionProgress = UserDefaults.standard.data(forKey: "completionProgress") {
+    if let savedCompletionProgress = userDefaults.data(forKey: "completionProgress") {
       if let decodedCompletionProgress = try? JSONDecoder().decode([String].self, from: savedCompletionProgress) {
         completionProgress = decodedCompletionProgress
         return
@@ -22,7 +24,7 @@ public class ProgressState: ObservableObject {
   /// Used for restoring the last opened page when the user restarts the app
   @Published public var currentPage: Int {
     didSet{
-      UserDefaults.standard.set(currentPage, forKey: "currentPage")
+      userDefaults.set(currentPage, forKey: "currentPage")
     }
   }
   
@@ -30,7 +32,7 @@ public class ProgressState: ObservableObject {
   @Published public var completionProgress: [String] {
     didSet{
       if let encoded = try? JSONEncoder().encode(completionProgress) {
-        UserDefaults.standard.set(encoded, forKey: "completionProgress")
+        userDefaults.set(encoded, forKey: "completionProgress")
       }
     }
   }

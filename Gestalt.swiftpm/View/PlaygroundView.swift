@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct PagePlaygroundView: View {
+struct PlaygroundView: View {
   
   /// manage user progress
   @ObservedObject private var progressState: ProgressState
@@ -15,7 +15,7 @@ struct PagePlaygroundView: View {
     VStack{
       switch playgroundViewtoDraw {
       case .welcomePlaygroundView:
-        WelcomePlaygroundView(progressState: progressState)
+        IntroductionPlaygroundView(progressState: progressState)
       case .similarityPlaygroundView:
         SimilarityPlaygroundView(progressState: progressState)
       case .proximityPlaygroundView:
@@ -29,7 +29,7 @@ struct PagePlaygroundView: View {
       }
     }
     .padding(30)
-    .padding(.top, 15)
+    .padding(.top, 20)
     .background(Color(hex: 0x363350))
     .cornerRadius(10)
   }

@@ -4,7 +4,7 @@ import SwiftUI
 struct GestaltTheory: App {
   var body: some Scene {
     WindowGroup {
-      BaseView()
+      BasicView()
     }
   }
 }

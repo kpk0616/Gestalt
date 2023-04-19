@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct WelcomePlaygroundView: View {
+struct IntroductionPlaygroundView: View {
   
   // manage user progress
   @ObservedObject var progressState: ProgressState

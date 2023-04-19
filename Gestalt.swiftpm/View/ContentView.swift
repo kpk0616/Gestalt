@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct PageContentView : View {
+struct ContentView : View {
   
   /// manage user progress
   @ObservedObject private var progressState: ProgressState
@@ -65,20 +65,12 @@ struct PageContentView : View {
             }
             
             // Draw PageImage elements
-            if let pageImage = element as? PageImage {
+            if let pageImage = element as? PageIcon {
               Image(pageImage.imageName)
                 .resizable()
                 .scaledToFit()
                 .padding(.top, pageImage.topSpacing ? topBottomSpacingValue : 0)
                 .padding(.bottom, pageImage.bottomSpacing ? topBottomSpacingValue : 0)
-            }
-            
-            // Draw PageDivider elements
-            if let pageDivider = element as? PageDivider {
-              divider
-                .padding(.top, pageDivider.topSpacing ? topBottomSpacingValue : 0)
-                .padding(.bottom, pageDivider.bottomSpacing ? topBottomSpacingValue : 0)
-              
             }
             
             // Draw PageTask elements
@@ -125,7 +117,7 @@ struct PageContentView : View {
               .cornerRadius(10)
               .padding(.top, pageTask.topSpacing ? topBottomSpacingValue : 0)
               .padding(.bottom, pageTask.bottomSpacing ? topBottomSpacingValue : 0)
-              PagePlaygroundView(progressState: progressState)
+              PlaygroundView(progressState: progressState)
             }
           }
           .onChange(of: progressState.currentPage, perform: { x in
@@ -209,7 +201,7 @@ struct PageContentView : View {
     VStack(spacing: 0){
       HStack{
         Spacer()
-        Image(systemName: currentPage.titleImageName)
+        Image(systemName: currentPage.titleIconName)
           .resizable()
           .scaledToFit()
           .foregroundColor(Color(uiColor: .white))
