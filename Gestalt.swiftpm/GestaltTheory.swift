@@ -1,7 +1,7 @@
 import SwiftUI
 
 @main
-struct Typeversity: App {
+struct GestaltTheory: App {
   var body: some Scene {
     WindowGroup {
       BaseView()

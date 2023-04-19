@@ -25,7 +25,7 @@ let welcome = Page(
   id: "basics_welcome",
   title: "Welcome",
   contentSubTitle: "Welcome",
-  contentTitle: "Gestalt Theory Basics Course",
+  contentTitle: "Gestalt Theory",
   titleImageName: "hand.wave",
   playgroundView: .welcomePlaygroundView,
   elements: [
