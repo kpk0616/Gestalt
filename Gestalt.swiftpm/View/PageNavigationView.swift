@@ -39,9 +39,6 @@ struct PageNavigationView: View {
   /// contines course title and a progress bar
   var courseInfoHeader : some View {
     VStack(alignment: .leading, spacing: 4){
-//      Text("Gestalt Theory")
-//        .font(.footnote)
-//        .foregroundColor(.white)
       Text("Gestalt Theory")
         .font(.title3).fontWeight(.bold)
         .padding(.bottom, 20)
@@ -51,7 +48,6 @@ struct PageNavigationView: View {
           .progressViewStyle(LinearProgressViewStyle(tint: .yellow))
         Text("\((appState.completionProgress.count) * 100 / BasicsCourse.count) %")
           .font(.caption)
-//          .foregroundColor(.secondary)
           .foregroundColor(.white)
       }
       HStack{
@@ -61,7 +57,6 @@ struct PageNavigationView: View {
         } label: {
           Text("Reset progress")
             .font(.caption)
-//            .foregroundColor(.accentColor)
             .foregroundColor(.yellow)
         }
         
@@ -105,12 +100,11 @@ struct PageNavigationView: View {
                 }
                 Text(page.title)
                   .font(.callout)
-//                  .foregroundColor(.primary)
                   .foregroundColor(.white)
                 Spacer()
               }
               .padding(10)
-              .background(page.id == BasicsCourse[appState.currentPage].id ? Color.accentColor.opacity(0.1) : Color.clear )
+              .background(page.id == BasicsCourse[appState.currentPage].id ? Color(hex: 0x696682) : Color.clear )
               .cornerRadius(10)
             }
           }

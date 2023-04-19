@@ -23,7 +23,7 @@ enum ContentCustomView {
 
 let welcome = Page(
   id: "basics_welcome",
-  title: "Welcome",
+  title: "Introduction",
   contentSubTitle: "Welcome",
   contentTitle: "Gestalt Theory",
   titleImageName: "hand.wave",
@@ -42,9 +42,9 @@ let welcome = Page(
 let similarity = Page(
   id: "basics_hierarchy",
   title: "Similarity",
-  contentSubTitle: "Lesson 2",
+  contentSubTitle: "Lesson 1",
   contentTitle: "The Law of Similarity",
-  titleImageName: "circle.grid.2x1",
+  titleImageName: "allergens",
   playgroundView: .similarityPlaygroundView,
   elements: [
     PageText("Good typography lets readers easily understand the semantics of different paragraphs in a layout. We use hierarchy to achieve that desired effect."),
@@ -63,7 +63,7 @@ let similarity = Page(
 let proximity = Page(
   id: "proximity",
   title: "Proximity",
-  contentSubTitle: "Lesson 3",
+  contentSubTitle: "Lesson 2",
   contentTitle: "The Law of Proximity",
   titleImageName: "rectangle.grid.1x2",
   playgroundView: .proximityPlaygroundView,
@@ -80,7 +80,7 @@ let proximity = Page(
 let continuance = Page(
   id: "continuance",
   title: "Continuance",
-  contentSubTitle: "Lesson 4",
+  contentSubTitle: "Lesson 3",
   contentTitle: "The Law of Continuance",
   titleImageName: "staroflife.fill",
   playgroundView: .continuancePlaygroundView,
@@ -97,7 +97,7 @@ let continuance = Page(
 let commonFate = Page(
   id: "common_fate",
   title: "Common Fate",
-  contentSubTitle: "Lesson 5",
+  contentSubTitle: "Lesson 4",
   contentTitle: "The Law of Common Fate",
   titleImageName: "chart.bar",
   playgroundView: .commonFatePlaygroundView,
@@ -114,7 +114,7 @@ let commonFate = Page(
 let closure = Page(
   id: "closure",
   title: "Closure",
-  contentSubTitle: "Lesson 6",
+  contentSubTitle: "Lesson 5",
   contentTitle: "The Law of Closure",
   titleImageName: "moonphase.waning.crescent",
   playgroundView: .closurePlaygroundView,
@@ -133,7 +133,7 @@ let quiz = Page(
   title: "Final Quiz",
   contentSubTitle: "Final Quiz",
   contentTitle: "Check your knowledge",
-  titleImageName: "brain.head.profile",
+  titleImageName: "brain",
   playgroundView: .quizPlaygroundView,
   elements: [
     PageText("Congratulations for making it that far! You've made your way through some of the most fundamental rules of typography, had the chance to apply them and now have a head start in typography. There's one last challenge for you that will put to the test, what you have learned."),

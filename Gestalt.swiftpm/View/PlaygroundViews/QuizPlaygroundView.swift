@@ -34,13 +34,13 @@ struct QuizPlaygroundView: View {
             VStack{
               Text("Question \(currentQuestionIndex+1) of \(questions.count)")
                 .font(.caption)
-                .foregroundColor(.secondary)
+                .foregroundColor(.yellow)
                 .padding(.bottom, 8)
               
               Text(questions[currentQuestionIndex])
                 .fontWeight(.semibold)
                 .multilineTextAlignment(.center)
-                .foregroundColor(Color.primary)
+                .foregroundColor(.white)
                 .font(.title3)
                 .transition(.scale)
                 .lineSpacing(1.5)
@@ -50,7 +50,7 @@ struct QuizPlaygroundView: View {
             Spacer()
           }
           .frame(height: 250)
-          .background(Color(uiColor: .secondarySystemBackground))
+          .background(Color(hex: 0x696682))
           .cornerRadius(10)
           
           
@@ -101,11 +101,11 @@ struct QuizPlaygroundView: View {
                     Spacer()
                     Text(answers[currentQuestionIndex][index])
                       .font(.callout)
-                      .foregroundColor(.accentColor)
+                      .foregroundColor(.yellow)
                     Spacer()
                   }
                   .padding(12)
-                  .background(Color.accentColor.opacity(0.13))
+                  .background(Color(hex: 0x696682).opacity(0.13))
                   .cornerRadius(10)
                 }
                 .padding(3)
@@ -132,7 +132,7 @@ struct QuizPlaygroundView: View {
             HStack(spacing: 25) {
               HStack{
                 Image(systemName: "checkmark.circle.fill")
-                  .foregroundColor(.green)
+                  .foregroundColor(.yellow)
                 Text("That's correct")
                   .padding(.leading, 5)
                   .foregroundColor(Color.primary)
@@ -181,9 +181,9 @@ struct QuizPlaygroundView: View {
       Spacer()
       VStack(spacing: 20){
         Image(systemName: "checkmark.circle.fill")
-          .foregroundColor(.green)
+          .foregroundColor(.yellow)
           .font(.largeTitle)
-        Text("Congratulations, you have successfully completed the quiz")
+        Text(" 🥳 Congratulations 👏\nYou have successfully completed the quiz!")
           .padding(.leading, 5)
           .foregroundColor(Color.primary)
           .font(.title3.weight(.medium))
@@ -194,10 +194,12 @@ struct QuizPlaygroundView: View {
           }
         } label: {
           Text("Restart")
+            .foregroundColor(.yellow)
+            .fontWeight(.bold)
             .padding(12)
             .padding(.leading, 7)
             .padding(.trailing, 7)
-            .background(Color.accentColor.opacity(0.1))
+            .background(Color(hex: 0x696682))
             .cornerRadius(10)
         }
         .padding(.top, 50)
