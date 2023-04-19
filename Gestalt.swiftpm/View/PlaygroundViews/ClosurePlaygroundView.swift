@@ -127,9 +127,7 @@ struct ClosurePlaygroundView: View {
   
   private func checkClosureChallengeCompleted(){
     if (buttonTapCount >= 6) {
-      /// currently opend page
       let currentPage = lessons[progressState.currentPage]
-      // Mark lesson as completed
       progressState.appendToCompletionProgress(id: currentPage.id)
     }
   }

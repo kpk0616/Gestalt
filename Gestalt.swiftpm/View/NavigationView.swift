@@ -28,7 +28,7 @@ struct NavigationView: View {
         HStack{
           Spacer()
           Button {
-            progressState.resetCompletionProgress()
+            progressState.resetProgress()
           } label: {
             Text("Reset progress")
               .font(.caption)

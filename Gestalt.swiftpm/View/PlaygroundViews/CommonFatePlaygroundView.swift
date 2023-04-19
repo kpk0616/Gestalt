@@ -65,9 +65,7 @@ struct CommonFatePlaygroundView: View {
   } // body end
   
   private func checkCommonFateChallengeCompleted(){
-    /// currently opend page
     let currentPage = lessons[progressState.currentPage]
-    // Mark lesson as completed
     progressState.appendToCompletionProgress(id: currentPage.id)
     animationBoolean.toggle()
     checkMarkOpacity = 1.0

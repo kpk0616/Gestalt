@@ -134,7 +134,6 @@ struct SimilarityPlaygroundView: View {
   } // body End
   private func checkSimilarityChallengeCompleted() {
     let currentPage = lessons[progressState.currentPage]
-    // Mark lesson as completed
     progressState.appendToCompletionProgress(id: currentPage.id)
     checkMarkOpacity = 1.0
   }

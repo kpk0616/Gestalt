@@ -93,9 +93,7 @@ struct ProximityPlaygroundView: View {
   
   private func checkProximityChallengeCompleted(){
     if (proximityDistance > 40) {
-      /// currently opend page
       let currentPage = lessons[progressState.currentPage]
-      // Mark lesson as completed
       progressState.appendToCompletionProgress(id: currentPage.id)
     }
   }

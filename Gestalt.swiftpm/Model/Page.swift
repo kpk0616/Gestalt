@@ -21,9 +21,6 @@ public struct Page: Equatable {
   }
 }
 
-/// common type of all PageElements that will be drawn on the page
-/// ensures that ever PageElement has an id and top & bottom spacing
-/// Objects of type PageElements shall not be created, instead uses childs like PageText that can be drawn
 class PageElement {
   
   var id: UUID
