@@ -120,19 +120,18 @@ struct ClosurePlaygroundView: View {
             .padding(5)
             .transition(.scale.combined(with: .opacity))
         }
-      }
-    } // Vstack End
-    Spacer()
+      } // Vstack End
+      Spacer()
+    }
+  } // body End
+  
+  func checkChallengeCompleted(){
+    if (buttonTapCount >= 6) {
+      /// currently opend page
+      let currentPage = BasicsCourse[appState.currentPage]
+      // Mark lesson as completed
+      appState.appendToCompletionProgress(id: currentPage.id)
+    }
   }
-} // body End
-
-func checkChallengeCompleted(){
-  if (buttonTapCount >= 6) {
-    /// currently opend page
-    let currentPage = BasicsCourse[appState.currentPage]
-    // Mark lesson as completed
-    appState.appendToCompletionProgress(id: currentPage.id)
-  }
-}
 }
 

@@ -11,118 +11,44 @@ struct CommonFatePlaygroundView: View {
   
   // manage user progress
   @ObservedObject var appState: AppState
+  // Position variables
+  @State private var position = CGPoint(x: 450, y: 70)
   
-  @State private var kerning = -6.0
-  @State private var fontSize = 80.0
   
   var body: some View {
-    VStack{
-      Spacer()
-      Text("Hello!")
-        .bold()
-        .font(.system(size: fontSize))
-        .kerning(kerning)
-      Spacer()
-      
-      // font size
-      HStack{
-        if fontSize > 55 && fontSize < 65 {
-          Image(systemName: "checkmark.circle.fill")
-            .resizable()
-            .scaledToFit()
-            .foregroundColor(Color.green)
-            .frame(width: 20, height: 20)
-            .padding(5)
-            .transition(.scale.combined(with: .opacity))
-          
-        } else {
-          Image(systemName: "textformat.size")
-            .resizable()
-            .scaledToFit()
-            .foregroundColor(Color.accentColor)
-            .frame(width: 20, height: 20)
-            .padding(5)
-            .transition(.scale.combined(with: .opacity))
+    ZStack {
+      Rectangle()
+        .foregroundColor(Color(UIColor.systemBackground))
+      VStack{
+        Spacer()
+          .frame(height: 30)
+        HStack {
+          Spacer()
+          Image("airplanes")
+            .renderingMode(.template)
+            .tint(.mint) // ?? 색 뭐임
+            .position(position) // 현재 위치로 이미지를 배치
+          Spacer()
         }
-        
-        Text("Font size")
-          .font(.callout)
-          .padding(5)
-          .animation(.none, value: kerning)
-        Slider(value: $fontSize.animation(Animation.timingCurve(0.44, 1.86, 0.61, 0.99, duration: 0.5)), in: 25...85)
-          .animation(.none, value: kerning)
-        Text("\(fontSize, specifier: "%.00f")")
-          .monospacedDigit()
-          .font(.caption)
-          .padding(5)
-          .animation(.none, value: kerning)
-        
-        
+        Spacer()
+          .frame(height: 30)
       }
-      .padding()
-      .background(
-        Color(uiColor: .secondarySystemBackground)
-      )
-      .cornerRadius(10)
-      .padding(.bottom, 5)
-      
-      // Kerning
-      HStack{
-        if kerning > 1 && kerning < 3 {
-          Image(systemName: "checkmark.circle.fill")
-            .resizable()
-            .scaledToFit()
-            .foregroundColor(Color.green)
-            .frame(width: 20, height: 20)
-            .padding(5)
-            .transition(.scale.combined(with: .opacity))
-          
-        } else {
-          Image(systemName: "textformat.abc.dottedunderline")
-            .resizable()
-            .scaledToFit()
-            .foregroundColor(Color.accentColor)
-            .frame(width: 20, height: 20)
-            .padding(5)
-            .transition(.scale.combined(with: .opacity))
-        }
-        
-        Text("Tracking")
-          .font(.callout)
-          .padding(5)
-          .animation(.none, value: kerning)
-        Slider(value: $kerning.animation(Animation.timingCurve(0.44, 1.86, 0.61, 0.99, duration: 0.5)), in: -8.0...8.0)
-          .animation(.none, value: kerning)
-        Text("\(kerning, specifier: "%.00f")")
-          .monospacedDigit()
-          .font(.caption)
-          .padding(5)
-          .animation(.none, value: kerning)
-        
-        
+    }
+    .onTapGesture { location in
+      print("Tapped at \(location)")
+      withAnimation(.easeInOut(duration: 1.5)) {
+        position = CGPoint(x: location.x - 70, y: location.y + 50)
       }
-      .padding()
-      .background(
-        Color(uiColor: .secondarySystemBackground)
-      )
-      .cornerRadius(10)
-      
-    }
-    .onChange(of: kerning) { newValue in
-      checkChallengeCompleted()
-    }
-    .onChange(of: fontSize) { newValue in
-      checkChallengeCompleted()
     }
   }
   
   func checkChallengeCompleted(){
-    if (kerning > 1 && kerning < 3) && (fontSize > 55 && fontSize < 65) {
-      /// currently opend page
-      let currentPage = BasicsCourse[appState.currentPage]
-      // Mark lesson as completed
-      appState.appendToCompletionProgress(id: currentPage.id)
-    }
+    /// currently opend page
+    let currentPage = BasicsCourse[appState.currentPage]
+    // Mark lesson as completed
+    appState.appendToCompletionProgress(id: currentPage.id)
   }
+  
+  
 }
 
