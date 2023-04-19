@@ -3,16 +3,16 @@ import SwiftUI
 struct BaseView: View {
   
   /// manage user progress
-  @StateObject var appState = ProgressState()
+  @StateObject var progressState = ProgressState()
   
   var body: some View {
     HStack(spacing: 0){
       // Navigation
-      PageNavigationView(appState: appState)
+      PageNavigationView(progressState: progressState)
         .frame(width: 260)
       
       // Content
-      PageContentView(appState: appState)
+      PageContentView(progressState: progressState)
     }
     .ignoresSafeArea()
   }

@@ -9,7 +9,6 @@ enum PlaygroundViews {
   case welcomePlaygroundView
   case similarityPlaygroundView
   case proximityPlaygroundView
-  case continuancePlaygroundView
   case commonFatePlaygroundView
   case closurePlaygroundView
   case quizPlaygroundView
@@ -68,23 +67,6 @@ let proximity = Page(
     PageTask("Set the font size to about 60 px and then adjust the tracking to let the word appear a bit more spaced out.", topSpacing: true),
     PageHeadline("Summary", topSpacing: true),
     PageText("You can improve the readability of a font by adjusting its tracking. With kerning, you can change the distance between individual characters, that's often used for perfecting largely visible headlines."),
-  ]
-)
-
-let continuance = Page(
-  id: "continuance",
-  title: "Continuance",
-  contentSubTitle: "Lesson 3",
-  contentTitle: "The Law of Continuance",
-  titleImageName: "staroflife.fill",
-  playgroundView: .continuancePlaygroundView,
-  elements: [
-    PageText("continuance"),
-    PageHeadline("헤딩1", topSpacing: true),
-    PageText("본문1"),
-    PageTask("챌린지!", topSpacing: true),
-    PageHeadline("Summary", topSpacing: true),
-    PageText("본문2"),
   ]
 )
 

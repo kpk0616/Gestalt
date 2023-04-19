@@ -10,14 +10,14 @@ import SwiftUI
 struct WelcomePlaygroundView: View {
   
   // manage user progress
-  @ObservedObject var appState: ProgressState
+  @ObservedObject var progressState: ProgressState
   @State var challengeChecked: Bool = false
   @Environment(\.colorScheme) var colorScheme
   
   
   /// currently opend page
   var currentPage : Page {
-    lessons[appState.currentPage]
+    lessons[progressState.currentPage]
   }
   
   var body: some View {
@@ -65,12 +65,12 @@ struct WelcomePlaygroundView: View {
       }
       
       HStack{
-        if !appState.completionProgress.contains(currentPage.id) {
+        if !progressState.completionProgress.contains(currentPage.id) {
           Button {
             /// currently opend page
-            let currentPage = lessons[appState.currentPage]
+            let currentPage = lessons[progressState.currentPage]
             // Mark lesson as completed
-            appState.appendToCompletionProgress(id: currentPage.id)
+            progressState.appendToCompletionProgress(id: currentPage.id)
             challengeChecked.toggle()
           } label: {
             Text("Tap it")
@@ -94,10 +94,10 @@ struct WelcomePlaygroundView: View {
             .transition(.scale.combined(with: .opacity))
         }
       }
-      .animation(Animation.timingCurve(0.44, 1.86, 0.61, 0.99, duration: 0.5), value: appState.completionProgress)
+      .animation(Animation.timingCurve(0.44, 1.86, 0.61, 0.99, duration: 0.5), value: progressState.completionProgress)
       
     }
-    .animation(Animation.timingCurve(0.16, 0.9, 0.51, 1, duration: 0.3), value: appState.completionProgress)
+    .animation(Animation.timingCurve(0.16, 0.9, 0.51, 1, duration: 0.3), value: progressState.completionProgress)
   }
 }
 

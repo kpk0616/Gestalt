@@ -3,31 +3,29 @@ import SwiftUI
 struct PagePlaygroundView: View {
   
   /// manage user progress
-  @ObservedObject private var appState: ProgressState
+  @ObservedObject private var progressState: ProgressState
   
-  public init(appState: ProgressState) {
-    self.appState = appState
+  public init(progressState: ProgressState) {
+    self.progressState = progressState
   }
   
   var body: some View {
     
-    let playgroundViewtoDraw = lessons[appState.currentPage].playgroundView
+    let playgroundViewtoDraw = lessons[progressState.currentPage].playgroundView
     VStack{
       switch playgroundViewtoDraw {
       case .welcomePlaygroundView:
-        WelcomePlaygroundView(appState: appState)
-      case .continuancePlaygroundView:
-        FontsPlaygroundView(progressState: appState)
+        WelcomePlaygroundView(progressState: progressState)
       case .similarityPlaygroundView:
-        SimilarityPlaygroundView(appState: appState)
+        SimilarityPlaygroundView(progressState: progressState)
       case .proximityPlaygroundView:
-        ProximityPlaygroundView(appState: appState)
+        ProximityPlaygroundView(progressState: progressState)
       case .commonFatePlaygroundView:
-        CommonFatePlaygroundView(progressState: appState)
+        CommonFatePlaygroundView(progressState: progressState)
       case .closurePlaygroundView:
-        ClosurePlaygroundView(progressState: appState)
+        ClosurePlaygroundView(progressState: progressState)
       case .quizPlaygroundView:
-        QuizPlaygroundView(appState: appState)
+        QuizPlaygroundView(progressState: progressState)
       }
     }
     .padding(30)

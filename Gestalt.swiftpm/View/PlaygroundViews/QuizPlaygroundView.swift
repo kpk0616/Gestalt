@@ -163,8 +163,8 @@ struct QuizPlaygroundView: View {
       }
     } else {
       // mark as finished
-      let currentPage = lessons[appState.currentPage]
-      appState.appendToCompletionProgress(id: currentPage.id)
+      let currentPage = lessons[progressState.currentPage]
+      progressState.appendToCompletionProgress(id: currentPage.id)
       
       DispatchQueue.main.asyncAfter(deadline: .now() + (0.01) ) {
         withAnimation(Animation.timingCurve(0.65, 0, 0.35, 1, duration: 0.4)){

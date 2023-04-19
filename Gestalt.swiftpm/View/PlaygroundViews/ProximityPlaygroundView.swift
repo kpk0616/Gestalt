@@ -4,6 +4,8 @@ struct ProximityPlaygroundView: View {
   
   // manage user progress
   @ObservedObject var progressState: ProgressState
+  
+  @State private var kerning = -6.0
   @State private var proximityDistance = 10.0
   
   @State private var cornerRadius = 10.0

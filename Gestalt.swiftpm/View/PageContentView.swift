@@ -3,15 +3,15 @@ import SwiftUI
 struct PageContentView : View {
   
   /// manage user progress
-  @ObservedObject private var appState: ProgressState
+  @ObservedObject private var progressState: ProgressState
   
   /// currently opend page
   var currentPage : Page {
-    lessons[appState.currentPage]
+    lessons[progressState.currentPage]
   }
   
-  public init(appState: ProgressState) {
-    self.appState = appState
+  public init(progressState: ProgressState) {
+    self.progressState = progressState
   }
   
   var body: some View {
@@ -125,10 +125,10 @@ struct PageContentView : View {
               .cornerRadius(10)
               .padding(.top, pageTask.topSpacing ? topBottomSpacingValue : 0)
               .padding(.bottom, pageTask.bottomSpacing ? topBottomSpacingValue : 0)
-              PagePlaygroundView(appState: appState)
+              PagePlaygroundView(progressState: progressState)
             }
           }
-          .onChange(of: appState.currentPage, perform: { x in
+          .onChange(of: progressState.currentPage, perform: { x in
             value.scrollTo(currentPage.elements.first!.id, anchor: .center)
           })
         }
@@ -139,7 +139,7 @@ struct PageContentView : View {
         
         
         // show footer navigation only if not on last page
-        if appState.currentPage + 1 < lessons.count {
+        if progressState.currentPage + 1 < lessons.count {
           divider
           navigationButtons
             .padding(.bottom, spacingValue)
@@ -154,10 +154,10 @@ struct PageContentView : View {
   /// navigation buttons for going back and forth in the pages, buttons will only be displayed if nagivagtion possible
   var  navigationButtons : some View {
     VStack{
-      if appState.currentPage + 1 < lessons.count {
+      if progressState.currentPage + 1 < lessons.count {
         Button {
           //appState.appendToCompletionProgress(id: currentPage.id)
-          appState.currentPage += 1
+          progressState.currentPage += 1
         } label: {
           Spacer()
           Text("Next lesson")
@@ -167,17 +167,16 @@ struct PageContentView : View {
           Spacer()
         }
         .padding(10)
-//        .background(Color(uiColor: UIColor.secondarySystemBackground))
         .background(Color(hex: 0x696682))
         .cornerRadius(10)
-        .padding(.bottom, appState.currentPage - 1 < 0 ? 10 : 0 )
+        .padding(.bottom, progressState.currentPage - 1 < 0 ? 10 : 0 )
         .keyboardShortcut(.downArrow, modifiers: [])
       }
       
       // show back button
-      if appState.currentPage - 1 >= 0 {
+      if progressState.currentPage - 1 >= 0 {
         Button {
-          appState.currentPage -= 1
+          progressState.currentPage -= 1
         } label: {
           Spacer()
           Text("Previous")

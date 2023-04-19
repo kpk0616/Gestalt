@@ -2,10 +2,10 @@ import SwiftUI
 
 struct PageNavigationView: View {
   
-  public init(appState: ProgressState) { self.appState = appState }
+  public init(progressState: ProgressState) { self.progressState = progressState }
   
   /// manage user progress
-  @ObservedObject private var appState: ProgressState
+  @ObservedObject private var progressState: ProgressState
   
   var body : some View {
     VStack(alignment: .leading, spacing: 0){
@@ -22,7 +22,7 @@ struct PageNavigationView: View {
     .padding(18)
     .padding(.top, 25)
     .background(Color(hex: 0x363350))
-    .animation(Animation.timingCurve(0.44, 1.86, 0.61, 0.99, duration: 0.5), value: appState.completionProgress)
+    .animation(Animation.timingCurve(0.44, 1.86, 0.61, 0.99, duration: 0.5), value: progressState.completionProgress)
   }
   
   
@@ -35,16 +35,16 @@ struct PageNavigationView: View {
         .padding(.bottom, 20)
         .foregroundColor(.white)
       HStack {
-        ProgressView(value: Float(appState.completionProgress.count), total: Float(lessons.count))
+        ProgressView(value: Float(progressState.completionProgress.count), total: Float(lessons.count))
           .progressViewStyle(LinearProgressViewStyle(tint: .yellow))
-        Text("\((appState.completionProgress.count) * 100 / lessons.count) %")
+        Text("\((progressState.completionProgress.count) * 100 / lessons.count) %")
           .font(.caption)
           .foregroundColor(.white)
       }
       HStack{
         Spacer()
         Button {
-          appState.resetCompletionProgress()
+          progressState.resetCompletionProgress()
         } label: {
           Text("Reset progress")
             .font(.caption)
@@ -66,11 +66,11 @@ struct PageNavigationView: View {
           ForEach(lessons, id: \.self.id) { page in
             Button {
               let index = lessons.firstIndex(of: page) ?? 0
-              appState.currentPage = index
+              progressState.currentPage = index
             } label: {
               
               HStack{
-                if (appState.completionProgress.contains(page.id)) {
+                if (progressState.completionProgress.contains(page.id)) {
                   Image(systemName: "checkmark.circle.fill")
                     .resizable()
                     .scaledToFit()
@@ -95,7 +95,7 @@ struct PageNavigationView: View {
                 Spacer()
               }
               .padding(10)
-              .background(page.id == lessons[appState.currentPage].id ? Color(hex: 0x696682) : Color.clear )
+              .background(page.id == lessons[progressState.currentPage].id ? Color(hex: 0x696682) : Color.clear )
               .cornerRadius(10)
             }
           }
