@@ -24,13 +24,11 @@ public struct Page: Equatable {
 class PageElement {
   
   var id: UUID
-  var topSpacing: Bool
-  var bottomSpacing: Bool
+  var spacing: Bool
   
-  init(_ topSpacing: Bool, _ bottomSpacing: Bool) {
+  init(_ spacing: Bool) {
     id = UUID()
-    self.topSpacing = topSpacing
-    self.bottomSpacing = bottomSpacing
+    self.spacing = spacing
   }
   
 }
@@ -40,27 +38,27 @@ class PageElement {
 class PageText : PageElement {
   var text: String
   
-  init(_ text: String, topSpacing: Bool = false, bottomSpacing: Bool = false) {
+  init(_ text: String, spacing: Bool = false) {
     self.text = text
-    super.init(topSpacing, bottomSpacing)
+    super.init(spacing)
   }
 }
 
 class PageHeadline : PageElement {
   var text: String
   
-  init(_ text: String, topSpacing: Bool = false, bottomSpacing: Bool = false) {
+  init(_ text: String, spacing: Bool = false) {
     self.text = text
-    super.init(topSpacing, bottomSpacing)
+    super.init(spacing)
   }
 }
 
 class PageIcon : PageElement {
   var imageName: String
 
-  init(imageName: String, topSpacing: Bool = false, bottomSpacing: Bool = false) {
+  init(imageName: String, spacing: Bool = false) {
     self.imageName = imageName
-    super.init(topSpacing, bottomSpacing)
+    super.init(spacing)
   }
 }
 
@@ -68,9 +66,9 @@ class PageTask : PageElement {
   var text: String
   var subTasks: [String]?
 
-  init(_ text: String, subTasks: [String]? = nil, topSpacing: Bool = false, bottomSpacing: Bool = false) {
+  init(_ text: String, subTasks: [String]? = nil, spacing: Bool = false) {
     self.text = text
     self.subTasks = subTasks
-    super.init(topSpacing, bottomSpacing)
+    super.init(spacing)
   }
 }

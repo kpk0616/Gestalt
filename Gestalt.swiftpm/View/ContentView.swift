@@ -2,10 +2,8 @@ import SwiftUI
 
 struct ContentView : View {
   
-  /// manage user progress
   @ObservedObject private var progressState: ProgressState
   
-  /// currently opend page
   var currentPage : Page {
     lessons[progressState.currentPage]
   }
@@ -18,7 +16,6 @@ struct ContentView : View {
     ZStack {
       Color(hex: 0x1C1934)
       VStack(alignment: .leading, spacing: 0){
-        //            pageHeader
         pageContent
       }
       .padding(30)
@@ -26,14 +23,10 @@ struct ContentView : View {
     }
   }
   
-  
-  /// used for element spacing
   let spacingValue : CGFloat = 16
-  /// used for extra topSpacing and bottomSpacing
   let topBottomSpacingValue : CGFloat = 22
   
   //  MARK: pageContent
-  /// scrollable view that contains all PageElements of that page
   var pageContent : some View {
     ScrollView(showsIndicators: false){
       pageHeader
@@ -49,8 +42,7 @@ struct ContentView : View {
               Text(pageHeadline.text)
                 .font(.body.bold())
                 .lineSpacing(3.5)
-                .padding(.top, pageHeadline.topSpacing ? topBottomSpacingValue : 0)
-                .padding(.bottom, pageHeadline.bottomSpacing ? topBottomSpacingValue : 0)
+                .padding(.top, pageHeadline.spacing ? topBottomSpacingValue : 0)
                 .foregroundColor(.white)
             }
             
@@ -59,8 +51,7 @@ struct ContentView : View {
               Text(pageText.text)
                 .lineSpacing(3.5)
                 .font(.callout)
-                .padding(.top, pageText.topSpacing ? topBottomSpacingValue : 0)
-                .padding(.bottom, pageText.bottomSpacing ? topBottomSpacingValue : 0)
+                .padding(.top, pageText.spacing ? topBottomSpacingValue : 0)
                 .foregroundColor(.white)
             }
             
@@ -69,8 +60,7 @@ struct ContentView : View {
               Image(pageImage.imageName)
                 .resizable()
                 .scaledToFit()
-                .padding(.top, pageImage.topSpacing ? topBottomSpacingValue : 0)
-                .padding(.bottom, pageImage.bottomSpacing ? topBottomSpacingValue : 0)
+                .padding(.top, pageImage.spacing ? topBottomSpacingValue : 0)
             }
             
             // Draw PageTask elements
@@ -115,8 +105,7 @@ struct ContentView : View {
               .padding(10)
               .background(Color(hex: 0x696682))
               .cornerRadius(10)
-              .padding(.top, pageTask.topSpacing ? topBottomSpacingValue : 0)
-              .padding(.bottom, pageTask.bottomSpacing ? topBottomSpacingValue : 0)
+              .padding(.top, pageTask.spacing ? topBottomSpacingValue : 0)
               PlaygroundView(progressState: progressState)
             }
           }
@@ -128,11 +117,8 @@ struct ContentView : View {
         .padding(.top, spacingValue)
         .padding(.bottom, spacingValue)
         
-        
-        
         // show footer navigation only if not on last page
         if progressState.currentPage + 1 < lessons.count {
-          divider
           navigationButtons
             .padding(.bottom, spacingValue)
         }
@@ -143,12 +129,10 @@ struct ContentView : View {
   }
   
   // MARK: navigationButtons
-  /// navigation buttons for going back and forth in the pages, buttons will only be displayed if nagivagtion possible
   var  navigationButtons : some View {
     VStack{
       if progressState.currentPage + 1 < lessons.count {
         Button {
-          //appState.appendToCompletionProgress(id: currentPage.id)
           progressState.currentPage += 1
         } label: {
           Spacer()
@@ -184,15 +168,6 @@ struct ContentView : View {
       }
     }
     .padding(.top, 15)
-  }
-  
-  // MARK: divider
-  /// darws a thin line with some spacign
-  var divider: some View {
-    Rectangle()
-      .cornerRadius(6)
-      .foregroundColor(Color(hex: 0x1C1934))
-      .frame(height: 2)
   }
   
   //  MARK: pageHeader
