@@ -21,7 +21,7 @@ struct PageNavigationView: View {
       
       pageOverview
       
-      moreButton
+//      moreButton
     }
     .padding(18)
     .padding(.top, 25)

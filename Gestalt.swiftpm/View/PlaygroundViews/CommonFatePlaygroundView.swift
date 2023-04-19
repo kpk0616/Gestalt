@@ -12,7 +12,11 @@ struct CommonFatePlaygroundView: View {
   // manage user progress
   @ObservedObject var appState: AppState
   // Position variables
+  @State private var checkMarkOpacity = 0.0
+  
   @State private var position = CGPoint(x: 450, y: 70)
+  @State private var rotationAngle: Angle = .zero
+  @State private var animationBoolean = false
   
   
   var body: some View {
@@ -24,31 +28,49 @@ struct CommonFatePlaygroundView: View {
           .frame(height: 30)
         HStack {
           Spacer()
-          Image("airplanes")
+          Image("birds")
             .renderingMode(.template)
-            .tint(.mint) // ?? 색 뭐임
+            .foregroundColor(.brown)
+            .rotationEffect(rotationAngle, anchor: .topLeading)
             .position(position) // 현재 위치로 이미지를 배치
           Spacer()
         }
         Spacer()
           .frame(height: 30)
+        Image(systemName: "checkmark.circle.fill")
+          .resizable()
+          .scaledToFit()
+          .foregroundColor(Color.green)
+          .frame(width: 50, height: 50)
+          .padding(5)
+          .opacity(checkMarkOpacity)
+          .transition(.scale.combined(with: .opacity))
+          .animation(.easeInOut(duration: 1.0), value: animationBoolean)
       }
     }
     .onTapGesture { location in
-      print("Tapped at \(location)")
+      checkCommonFateChallengeCompleted()
       withAnimation(.easeInOut(duration: 1.5)) {
         position = CGPoint(x: location.x - 70, y: location.y + 50)
-      }
-    }
-  }
+        if location.x < 450 {
+          rotationAngle = .degrees(-90)
+          position.x += 130
+          position.y += 180
+        }
+        else {
+          rotationAngle = .zero
+        }
+      } // withAnimation end
+    } // onTapGesture End
+  } // body end
   
-  func checkChallengeCompleted(){
+  private func checkCommonFateChallengeCompleted(){
     /// currently opend page
     let currentPage = BasicsCourse[appState.currentPage]
     // Mark lesson as completed
     appState.appendToCompletionProgress(id: currentPage.id)
+    animationBoolean.toggle()
+    checkMarkOpacity = 1.0
   }
-  
-  
 }
 
