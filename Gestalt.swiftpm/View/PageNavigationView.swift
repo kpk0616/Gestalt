@@ -7,9 +7,6 @@ struct PageNavigationView: View {
   /// manage user progress
   @ObservedObject private var appState: AppState
   
-  /// defines if the app shows the about window
-  @State private var showingAboutView = false
-  
   var body : some View {
     VStack(alignment: .leading, spacing: 0){
       
@@ -21,17 +18,11 @@ struct PageNavigationView: View {
         .foregroundColor(.white)
       
       pageOverview
-      
-//      moreButton
     }
     .padding(18)
     .padding(.top, 25)
-//    .background(Color(uiColor: .secondarySystemBackground))
     .background(Color(hex: 0x363350))
     .animation(Animation.timingCurve(0.44, 1.86, 0.61, 0.99, duration: 0.5), value: appState.completionProgress)
-    .sheet(isPresented: $showingAboutView){
-      AboutView()
-    }
   }
   
   
@@ -112,29 +103,4 @@ struct PageNavigationView: View {
       }
     }
   }
-  
-  //  MARK: moreButton
-  /// toggles a modal view showing background info about the app
-  var moreButton: some View {
-    Button {
-      showingAboutView.toggle()
-    } label: {
-      HStack{
-        Image(systemName: "info.circle")
-          .resizable()
-          .scaledToFit()
-          .foregroundColor(Color.accentColor)
-          .frame(width: 17, height: 17)
-          .padding(5)
-        //.padding(.trailing, 2)
-          .transition(.scale.combined(with: .opacity))
-        
-        Text("About this app")
-          .font(.footnote)
-          .foregroundColor(.primary)
-        Spacer()
-      }
-    }
-  }
-  
 }

@@ -78,8 +78,7 @@ struct WelcomePlaygroundView: View {
             appState.appendToCompletionProgress(id: currentPage.id)
             challengeChecked.toggle()
           } label: {
-            Text("Got it")
-              .fontWeight(.bold)
+            Text("Tap it")
               .padding(12)
               .padding(.leading, 15)
               .padding(.trailing, 15)

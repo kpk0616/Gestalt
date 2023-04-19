@@ -127,16 +127,6 @@ struct PageContentView : View {
               .padding(.bottom, pageTask.bottomSpacing ? topBottomSpacingValue : 0)
               PagePlaygroundView(appState: appState)
             }
-            
-            // Draw PageCustomView elements
-            if let pageCustomView = element as? PageCustomView {
-              switch pageCustomView.customView {
-              case ContentCustomView.fontsContentCustomView:
-                SimilarityContentCustomView()
-                  .padding(.top, pageCustomView.topSpacing ? topBottomSpacingValue : 0)
-                  .padding(.bottom, pageCustomView.bottomSpacing ? topBottomSpacingValue : 0)
-              }
-            }
           }
           .onChange(of: appState.currentPage, perform: { x in
             value.scrollTo(currentPage.elements.first!.id, anchor: .center)

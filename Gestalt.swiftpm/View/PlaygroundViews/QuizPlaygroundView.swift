@@ -105,7 +105,7 @@ struct QuizPlaygroundView: View {
                     Spacer()
                   }
                   .padding(12)
-                  .background(Color(hex: 0x696682).opacity(0.13))
+                  .background(Color(hex: 0x696682).opacity(0.2))
                   .cornerRadius(10)
                 }
                 .padding(3)

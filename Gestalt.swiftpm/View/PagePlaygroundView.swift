@@ -32,9 +32,7 @@ struct PagePlaygroundView: View {
     }
     .padding(30)
     .padding(.top, 15)
-//    .border(Color(uiColor: .secondarySystemBackground), width: 2.5)
     .background(Color(hex: 0x363350))
     .cornerRadius(10)
-    //      Color(uiColor: .secondarySystemBackground)
   }
 }
