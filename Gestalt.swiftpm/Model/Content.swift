@@ -19,12 +19,18 @@ let welcome = Page(
   titleIconName: "hand.wave",
   playgroundView: .welcomePlaygroundView,
   elements: [
-    PageText("게슈탈트 이론입니다요."),
-    PageTask("게슈탈트 첫 챌린지 문장입니다요.", spacing: true),
-    PageHeadline("헤딩1", spacing: true),
-    PageText("본문본문"),
-    PageHeadline("헤딩2", spacing: true),
-    PageText("본문본문"),
+    PageText("This app provides a course for enhancing understanding of visual theory by introducing and allowing hands-on practice of the Gestalt theory, which is one of the theories in cognitive psychology."),
+    PageText(" "),
+    PageHeadline("Gestalt Theory"),
+    PageText("\"Gestalt\" means \"shape, form, structure\" in German. This theory suggests that in the process of human cognition, all elements are not processed independently, but tend to be perceived in an organized structure. This can be summarized as the concept that \"the whole is greater than the sum of its parts.\""),
+    PageText("The concepts of Gestalt theory are applied in various fields. For example, in the field of design, researchers study how to optimize human visual perception and create effective designs by utilizing these principles of perception."),
+    PageTask("Below is the playground view where you will be soving the callenges.\nPress the button below to see how the main objects you perceive change in shape.", spacing: true),
+    PageHeadline("Positive Space & Negative Space", spacing: true),
+    PageText("Understanding the concepts of positive and negative space can increase one's understanding of Gestalt theory."),
+    PageText("Positive space refers to the space where the main subject or element is located and is generally composed of various visual elements such as color, pattern, texture, line, and form. For example, in the image above, if one recognizes a human face as the main object, the human face could be considered the positive space."),
+    PageText("On the other hand, negative space refers to the empty space where the main element is not located and is typically used to emphasize or strengthen the positive space. For example, in the image, the space surrounding the human face could be considered negative space."),
+    PageHeadline("Summary", spacing: true),
+    PageText("Positive space is the area where the main object is perceived, while negative space is the empty space surrounding the main object. Where is the positive space and negative space that you perceive in the above challenge?"),
   ]
 )
 
@@ -36,15 +42,13 @@ let similarity = Page(
   titleIconName: "allergens",
   playgroundView: .similarityPlaygroundView,
   elements: [
-    PageText("Good typography lets readers easily understand the semantics of different paragraphs in a layout. We use hierarchy to achieve that desired effect."),
-    PageHeadline("Font sizes", spacing: true),
-    PageText("The first option to create hierarchy is the font size. The larger the font of a paragraph the more dominant and important it will appear. Make sure that you choose a consistent system of sizes which allows easy distinction. A good rule of thumb is to double the size for the next higher hierarchy."),
-    PageText("Keep in mind that we also pursue the goal of making text greatly readable, so don't choose too small font sizes. For body text, go for a point size larger than 13 pixels for digital and 10 points for print."),
-    PageHeadline("Font styles", spacing: true),
-    PageText("You probably already know that fonts can have different weights. Thin, Regular or Semibold just to name a few. In addition to working with different font sizes, you can also use these weights to create hierarchy and empathise different paragraphs. Whenever you use more than one style of a font, make sure to skip a weight, otherwise, the difference between those two weights is too subtle. You can for example choose a combination of thin and medium, if there is a regular in between."),
-    PageTask("The news app on the right currently lacks a clear hierarchy. The problem is the headline, adjust the font size and weight to fix that.", spacing: true),
+    PageText("When perceiving a form, there is a tendency to group visually similar elements together based on attributes such as shape, size, depth, direction, and color. This principle is called the principle of similarity."),
+    PageHeadline("Unity"),
+    PageText("Visual elements that are similar in shape appear to be related or grouped more closely than elements that do not share common attributes. This similarity is referred to as unity, which is the recognition of similar elements as a cohesive whole or sum."),
+    PageTask("Select Color, Shape, and Size below to see how each element is grouped in perception.", spacing: true),
     PageHeadline("Summary", spacing: true),
-    PageText("For screens use Sans Serif and for print use Serif fonts. Stick to one font for a project and prefer well-established typefaces."),
+    PageText("The law of similarity suggests that elements with similar shapes, colors, sizes, textures, and so on are perceived as a group, forming a single pattern."),
+    PageText("This is one of the key concepts in Gestalt psychology, which proposes that the perception of elements is not processed independently but rather organized into a structured whole in human cognition."),
   ]
 )
 
@@ -56,12 +60,15 @@ let proximity = Page(
   titleIconName: "rectangle.grid.1x2",
   playgroundView: .proximityPlaygroundView,
   elements: [
-    PageText("For this last lesson, we will take a look at something more advanced in typography, kerning and tracking of letters and fonts."),
-    PageHeadline("Make space", spacing: true),
-    PageText("Both kerning and tracking improve the appearance and design of your text by adding or subtracting space between specific pairs of characters. With kerning, you can change the space between two characters and tracking changes the spacing of the whole paragraph. Adjust the tracking with great caution, as too much and too little can make reading a lot more difficult."),
-    PageTask("Set the font size to about 60 px and then adjust the tracking to let the word appear a bit more spaced out.", spacing: true),
+    PageText("The law of proximity states that elements placed close to each other are perceived as being more related than elements that are farther apart."),
+    PageHeadline("Distance", spacing: true),
+    PageText("The key factor in the principle of proximity is 'distance'. By making elements closer or farther apart, we can clearly differentiate them into different groups. If the elements are closer, they are perceived as one group, and if they are farther apart, they are perceived as different groups."),
+    PageText("For example, if several dots are arranged close to each other, they are perceived as one group. Similarly, if several squares of similar size and color are arranged close to each other, they are perceived as one group."),
+    PageText("In design, proximity is used to group related elements together, maintaining harmony and balance between the components or creating emphasis. In art, the principle of proximity is used to control the composition of the artwork or to add emphasis to certain elements."),
+    PageTask("Move the slider to observe how the shapes are grouped together.", spacing: true),
     PageHeadline("Summary", spacing: true),
-    PageText("You can improve the readability of a font by adjusting its tracking. With kerning, you can change the distance between individual characters, that's often used for perfecting largely visible headlines."),
+    PageText("The law of proximity suggests that elements positioned close to each other are perceived as a group, which is an important factor in grouping and pattern recognition for humans."),
+    PageText("In other words, humans tend to perceive elements that are located close together as a single unit, and this is one of the important factors in grouping and pattern formation.")
   ]
 )
 
@@ -73,12 +80,12 @@ let commonFate = Page(
   titleIconName: "chart.bar",
   playgroundView: .commonFatePlaygroundView,
   elements: [
-    PageText("For this last lesson, we will take a look at something more advanced in typography, kerning and tracking of letters and fonts."),
-    PageHeadline("Make space", spacing: true),
-    PageText("Both kerning and tracking improve the appearance and design of your text by adding or subtracting space between specific pairs of characters. With kerning, you can change the space between two characters and tracking changes the spacing of the whole paragraph. Adjust the tracking with great caution, as too much and too little can make reading a lot more difficult."),
-    PageTask("Set the font size to about 60 px and then adjust the tracking to let the word appear a bit more spaced out.", spacing: true),
+    PageText("The Law of Common Fate refers to the perception of grouping objects that move in the same direction."),
+    PageHeadline("Unified directionality", spacing: true),
+    PageText("When elements on the screen share the same direction, they appear to be unified, creating a sense of coherence and allowing viewers to focus on the cause of the motion. In other words, the Law of Common Fate enables us to perceive a unified directionality and to recognize elements that are moving together as a single cohesive group."),
+    PageTask("Tap the screen to observe the elements moving in the same direction!", spacing: true),
     PageHeadline("Summary", spacing: true),
-    PageText("You can improve the readability of a font by adjusting its tracking. With kerning, you can change the distance between individual characters, that's often used for perfecting largely visible headlines."),
+    PageText("The Law of Common Fate suggests that we perceive elements that move in the same direction as a collective unit and perceive them as one factor."),
   ]
 )
 
@@ -90,12 +97,12 @@ let closure = Page(
   titleIconName: "moonphase.waning.crescent",
   playgroundView: .closurePlaygroundView,
   elements: [
-    PageText("For this last lesson, we will take a look at something more advanced in typography, kerning and tracking of letters and fonts."),
-    PageHeadline("Make space", spacing: true),
-    PageText("Both kerning and tracking improve the appearance and design of your text by adding or subtracting space between specific pairs of characters. With kerning, you can change the space between two characters and tracking changes the spacing of the whole paragraph. Adjust the tracking with great caution, as too much and too little can make reading a lot more difficult."),
-    PageTask("Set the font size to about 60 px and then adjust the tracking to let the word appear a bit more spaced out.", spacing: true),
+    PageHeadline("Imagination", spacing: true),
+    PageText("The Law of Closure refers to the tendency of humans to imagine or complete missing parts of an object in order to perceive it as a complete and whole figure. This tendency is exhibited when external stimuli partially match the object, even when some information is missing."),
+             PageText("The human brain has a natural inclination to perceive objects as complete and perfect, and thus tries to fill in any gaps or missing information through imagination in order to better understand the environment around us. This process occurs unconsciously."),
+    PageTask("Press the button to make 6 shapes appear. Observe what shape is formed in the completed pattern.", spacing: true),
     PageHeadline("Summary", spacing: true),
-    PageText("You can improve the readability of a font by adjusting its tracking. With kerning, you can change the distance between individual characters, that's often used for perfecting largely visible headlines."),
+    PageText("The law of closure is a core principle of Gestalt theory and a visual perceptual principle where the mind unconsciously seeks to perceive incomplete forms as complete forms, thus creating consistency and coherence out of objectively inconsistent parts."),
   ]
 )
 
@@ -107,8 +114,8 @@ let quiz = Page(
   titleIconName: "brain",
   playgroundView: .quizPlaygroundView,
   elements: [
-    PageText("Congratulations for making it that far! You've made your way through some of the most fundamental rules of typography, had the chance to apply them and now have a head start in typography. There's one last challenge for you that will put to the test, what you have learned."),
+    PageText("Congratulations on making it this far! You have learned about four principles of Gestalt theory. You have learned a visual theory and expanded your perspective. Below is a quiz to test what you have learned."),
     PageTask("Check what you have learned and finish the final quiz on the right.", spacing: true),
-    PageText("Thank you for taking the time to complete this course, I hope you enjoyed it and that you've learned something new. Have a great WWDC, see you there!", spacing: true),
+    PageText("Thank you for taking the time to experience this app. I hope you had a fun and enriching learning experience through this app. \nI wish for your vision to continue expanding!", spacing: true),
   ]
 )

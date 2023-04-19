@@ -54,15 +54,6 @@ struct IntroductionPlaygroundView: View {
         }
       }
       // 챌린지 배경 + 사진 End
-      HStack{
-        Spacer()
-        Text("This is the playground view where you will be soving the callenges.")
-          .multilineTextAlignment(.center)
-          .padding(.bottom, 20)
-          .foregroundColor(.white)
-        
-        Spacer()
-      }
       
       HStack{
         if !progressState.completionProgress.contains(currentPage.id) {

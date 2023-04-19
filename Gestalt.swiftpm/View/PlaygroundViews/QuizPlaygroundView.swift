@@ -21,9 +21,9 @@ struct QuizPlaygroundView: View {
   @State var animateShake: Int = 0
   
   // Quiz data
-  private var questions = ["If you wanted to design the text on a website, what font would you choose?", "Which statement is wrong?", "Too much tracking causes a text to become difficult to read because letters overlap."]
-  private var answers = [["Slab Serif", "Mono spaced", "Sans Serif", "Serif"],["Digital body text should be larger than 13 px", "The combination of semibold and bold font weights create good hierarchy", "When subheadlines have a font size of 20px, 40px would be a good size for headlines", "_empty_"],["True", "False", "_empty_", "_empty_"]]
-  private var correctAnswers = [2,1,1]
+  private var questions = ["What is the element that enables us to feel a sense of unity in the Law of Common Fate?", "What is the correct statement about the law of closure?", "The positive place is a visual area that recognizes prominent objects."]
+  private var answers = [["Texture", "Unified directionality", "Distance", "Color"],["Perceiving incomplete forms as complete forms unconsciously.", "It means perceiving similar elements as a single cohesive unit.", "It is related to the directionality of the elements.", "_empty_"],["True", "False", "_empty_", "_empty_"]]
+  private var correctAnswers = [1,0,0]
   
   var body: some View {
     ZStack(alignment: .bottom) {
@@ -185,7 +185,7 @@ struct QuizPlaygroundView: View {
           .font(.largeTitle)
         Text(" 🥳 Congratulations 👏\nYou have successfully completed the quiz!")
           .padding(.leading, 5)
-          .foregroundColor(Color.primary)
+          .foregroundColor(.white)
           .font(.title3.weight(.medium))
           .multilineTextAlignment(.center)
         Button {
