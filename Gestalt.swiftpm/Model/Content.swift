@@ -68,7 +68,7 @@ let proximity = Page(
 let commonFate = Page(
   id: "common_fate",
   title: "Common Fate",
-  contentSubTitle: "Lesson 4",
+  contentSubTitle: "Lesson 3",
   contentTitle: "The Law of Common Fate",
   titleIconName: "chart.bar",
   playgroundView: .commonFatePlaygroundView,
@@ -85,7 +85,7 @@ let commonFate = Page(
 let closure = Page(
   id: "closure",
   title: "Closure",
-  contentSubTitle: "Lesson 5",
+  contentSubTitle: "Lesson 4",
   contentTitle: "The Law of Closure",
   titleIconName: "moonphase.waning.crescent",
   playgroundView: .closurePlaygroundView,

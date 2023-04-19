@@ -1,5 +1,6 @@
 import SwiftUI
 
+// inspired by: https://github.com/henribredt/Typography-WWDC22
 public class ProgressState: ObservableObject {
   
   private let userDefaults = UserDefaults.standard
