@@ -98,8 +98,8 @@ let closure = Page(
   playgroundView: .closurePlaygroundView,
   elements: [
     PageHeadline("Imagination", spacing: true),
-    PageText("The Law of Closure refers to the tendency of humans to imagine or complete missing parts of an object in order to perceive it as a complete and whole figure. This tendency is exhibited when external stimuli partially match the object, even when some information is missing."),
-             PageText("The human brain has a natural inclination to perceive objects as complete and perfect, and thus tries to fill in any gaps or missing information through imagination in order to better understand the environment around us. This process occurs unconsciously."),
+    PageText("We have a tendency to imagine the missing parts of an object to perceive it as a whole. This is where the Law of Closure comes into play. This habit occurs when what we see or perceive partially matches the object, even if some information is missing."),
+             PageText("Our brains have a built-in tendency to view things as whole and flawless, and we unconsciously use our imagination to fill in any missing pieces or gaps in our perception. This process occurs unconsciously."),
     PageTask("Press the button to make 6 shapes appear. Observe what shape is formed in the completed pattern.", spacing: true),
     PageHeadline("Summary", spacing: true),
     PageText("The law of closure is a core principle of Gestalt theory and a visual perceptual principle where the mind unconsciously seeks to perceive incomplete forms as complete forms, thus creating consistency and coherence out of objectively inconsistent parts."),
