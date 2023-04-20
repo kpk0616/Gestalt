@@ -191,6 +191,7 @@ struct QuizPlaygroundView: View {
         Button {
           withAnimation(Animation.timingCurve(0.65, 0, 0.35, 1, duration: 0.4)) {
             quizCompleted = false
+            progressState.resetProgress()
           }
         } label: {
           Text("Restart")

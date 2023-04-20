@@ -40,7 +40,8 @@ struct ContentView : View {
             // Draw PageSubTitle elements
             if let pageHeadline = element as? PageHeadline {
               Text(pageHeadline.text)
-                .font(.body.bold())
+                .font(.system(size: 22))
+                .fontWeight(.semibold)
                 .lineSpacing(3.5)
                 .padding(.top, pageHeadline.spacing ? topBottomSpacingValue : 0)
                 .foregroundColor(.white)
@@ -50,7 +51,7 @@ struct ContentView : View {
             if let pageText = element as? PageText {
               Text(pageText.text)
                 .lineSpacing(3.5)
-                .font(.callout)
+                .font(.system(size: 18))
                 .padding(.top, pageText.spacing ? topBottomSpacingValue : 0)
                 .foregroundColor(.white)
             }
@@ -72,31 +73,21 @@ struct ContentView : View {
                   .cornerRadius(10)
                   .padding(1)
                 VStack(alignment: .leading){
-                  Text("Challenge")
+                  Text("Challenge 💡")
                     .lineSpacing(3.5)
-                    .font(.footnote)
+                    .font(.system(size: 15))
                     .foregroundColor(.yellow)
+                    .fontWeight(.semibold)
                   Text(pageTask.text)
-                    .font(.callout)
+                    .font(.system(size: 18))
                     .padding(.top, 2)
+                    .lineSpacing(3)
                     .foregroundColor(.white)
                   
                   if let subTasks = pageTask.subTasks {
                     Rectangle()
                       .frame(height: 2)
                       .foregroundColor(Color.clear)
-                    
-                    ForEach(subTasks, id: \.self) { subTask in
-                      HStack(alignment: .top){
-                        Text("•")
-                        //.padding(.leading, 6)
-                          .padding(.trailing, 6)
-                        Text(subTask)
-                          .font(.callout)
-                          .lineSpacing(3)
-                      }
-                      .padding(.top, 2)
-                    }
                   }
                 }
                 .padding(5)
@@ -191,11 +182,11 @@ struct ContentView : View {
       
       VStack(spacing: 6){
         Text(currentPage.contentSubTitle)
-          .font(.caption)
+          .font(.system(size: 14))
           .foregroundColor(.white)
           .padding(.top, 7)
         Text(currentPage.contentTitle)
-          .font(.title2).fontWeight(.semibold)
+          .font(.title).fontWeight(.bold)
           .multilineTextAlignment(.center)
           .foregroundColor(.white)
       }

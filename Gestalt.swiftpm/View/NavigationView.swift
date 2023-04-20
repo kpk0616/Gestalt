@@ -22,7 +22,7 @@ struct NavigationView: View {
           ProgressView(value: Float(progressState.completionProgress.count), total: Float(lessons.count))
             .progressViewStyle(LinearProgressViewStyle(tint: .yellow))
           Text("\((progressState.completionProgress.count) * 100 / lessons.count) %")
-            .font(.caption)
+            .font(.system(size: 14))
             .foregroundColor(.white)
         }
         HStack{
@@ -31,7 +31,8 @@ struct NavigationView: View {
             progressState.resetProgress()
           } label: {
             Text("Reset progress")
-              .font(.caption)
+//              .font(.caption)
+              .font(.system(size: 14))
               .foregroundColor(.yellow)
           }
           
