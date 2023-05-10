@@ -183,7 +183,7 @@ struct QuizPlaygroundView: View {
         Image(systemName: "checkmark.circle.fill")
           .foregroundColor(.yellow)
           .font(.largeTitle)
-        Text(" 🥳 Congratulations 👏\nYou have successfully completed the quiz!")
+        Text(" 🥳 Congratulations 👏\nYou have successfully completed the quiz!\n\nBased on the You learned in this app, \ntry to look at other objects, design elements, and buildings near you. \nYou will be able to consciously observe the collection of visual elements \nthat you unconsciously felt before.")
           .padding(.leading, 5)
           .foregroundColor(.white)
           .font(.title3.weight(.medium))
